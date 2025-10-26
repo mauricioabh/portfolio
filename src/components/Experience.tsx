@@ -28,7 +28,7 @@ const experiences: ExperienceItem[] = [
     startDate: "2021",
     endDate: "2024",
     description:
-      "Developed and maintained SAP Fiori applications for enterprise clients, focusing on user experience and performance optimization. Led technical discussions and mentored junior developers.",
+      "Developed and maintained SAP Fiori applications for enterprise clients, focusing on user experience and performance optimization. Led technical discussions and mentored junior developers in SAP best practices.",
     technologies: ["SAP Fiori", "UI5", "JavaScript", "OData", "SAP Gateway"],
     current: false,
   },
@@ -40,7 +40,7 @@ const experiences: ExperienceItem[] = [
     startDate: "2017",
     endDate: "2021",
     description:
-      "Specialized in SAP Fiori development, creating responsive and intuitive web applications. Collaborated with cross-functional teams to deliver high-quality solutions.",
+      "Specialized in SAP Fiori development, creating responsive and intuitive web applications. Collaborated with cross-functional teams to deliver high-quality solutions and improve user experience.",
     technologies: ["SAP Fiori", "UI5", "JavaScript", "CSS3", "HTML5"],
     current: false,
   },
@@ -52,7 +52,7 @@ const experiences: ExperienceItem[] = [
     startDate: "2015",
     endDate: "2017",
     description:
-      "Analyzed business requirements and developed custom software solutions. Worked closely with stakeholders to ensure project success and user satisfaction.",
+      "Analyzed business requirements and developed custom software solutions. Worked closely with stakeholders to ensure project success and user satisfaction through effective communication and technical expertise.",
     technologies: ["JavaScript", "HTML5", "CSS3", "SQL", "PHP"],
     current: false,
   },
@@ -61,23 +61,23 @@ const experiences: ExperienceItem[] = [
     company: "BITAM",
     title: "Web Mobile Software Developer",
     location: "Tampico, Mexico",
-    startDate: "2013",
+    startDate: "2011",
     endDate: "2015",
     description:
-      "Developed cross-platform mobile applications and web solutions. Focused on responsive design and user experience optimization.",
+      "Developed cross-platform mobile applications and web solutions using modern technologies. Focused on responsive design and user experience optimization to deliver seamless digital experiences.",
     technologies: ["JavaScript", "HTML5", "CSS3", "jQuery", "Bootstrap"],
     current: false,
   },
   {
-    id: "bitam-sap",
+    id: "bitam-qa",
     company: "BITAM",
-    title: "SAP Fiori Developer",
+    title: "QA Tester",
     location: "Tampico, Mexico",
-    startDate: "2011",
-    endDate: "2013",
+    startDate: "2009",
+    endDate: "2011",
     description:
-      "Started career in SAP Fiori development, learning enterprise application development and best practices in the SAP ecosystem.",
-    technologies: ["SAP Fiori", "UI5", "JavaScript", "XML", "JSON"],
+      "Started career in quality assurance testing, learning software testing methodologies and best practices. Gained foundational knowledge in testing frameworks and quality control processes.",
+    technologies: ["Testing", "JavaScript", "Selenium", "Jest", "Cypress"],
     current: false,
   },
 ];

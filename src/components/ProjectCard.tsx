@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Eye } from "lucide-react";
+import { ExternalLink, Github, Eye, Package } from "lucide-react";
 import { Project } from "@/data/projects";
 import TechBadge from "./TechBadge";
 
@@ -156,8 +156,14 @@ const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2"
                       >
-                        <Eye size={16} />
-                        Live Demo
+                        {project.liveUrl.includes("npmjs.com") ? (
+                          <Package size={16} />
+                        ) : (
+                          <Eye size={16} />
+                        )}
+                        {project.liveUrl.includes("npmjs.com")
+                          ? "NPM"
+                          : "Live Demo"}
                         <ExternalLink
                           size={14}
                           className="group-hover/btn:translate-x-0.5 transition-transform"
