@@ -190,6 +190,27 @@ const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
                     </Button>
                   )}
                 </div>
+
+                {/* GitHub Sponsor Button - Only for npm projects */}
+                {project.id === "env-ironmint" && (
+                  <div className="mt-4 flex justify-center">
+                    <a
+                      href="https://github.com/sponsors/mauricioabh"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block hover:opacity-90 transition-opacity"
+                    >
+                      <iframe
+                        src="https://github.com/sponsors/mauricioabh/button"
+                        title="Sponsor mauricioabh"
+                        height="32"
+                        width="114"
+                        className="border-0 rounded-md pointer-events-none"
+                        style={{ border: 0, borderRadius: "6px" }}
+                      />
+                    </a>
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>
