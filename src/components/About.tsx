@@ -158,7 +158,10 @@ const About = () => {
               </div>
 
               {/* Floating elements */}
-              <motion.div
+              <motion.a
+                href="https://learn.microsoft.com/api/credentials/share/en-us/MauricioAlbertoBarragnHuerta-9378/56BA1B548E6B3CBB?sharingId=48E81C39E2FA9446"
+                target="_blank"
+                rel="noopener noreferrer"
                 animate={{
                   y: [0, -10, 0],
                   rotate: [0, 5, 0],
@@ -168,10 +171,14 @@ const About = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute top-8 right-8 w-16 h-16 bg-primary/30 rounded-lg flex items-center justify-center"
+                className="absolute top-8 right-8 w-24 h-24 bg-primary/30 rounded-lg flex items-center justify-center cursor-pointer hover:bg-primary/40 transition-colors p-2"
               >
-                <Code2 className="text-primary" size={24} />
-              </motion.div>
+                <img 
+                  src="/github-copilot.svg" 
+                  alt="GitHub Copilot Certification" 
+                  className="w-full h-full object-contain"
+                />
+              </motion.a>
 
               <motion.div
                 animate={{
