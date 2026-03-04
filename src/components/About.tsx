@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Badge } from "@/components/ui/badge";
-import { Code2, Database } from "lucide-react";
+import { Database } from "lucide-react";
+import Image from "next/image";
 import TechBadge from "./TechBadge";
 
 const About = () => {
@@ -17,8 +17,7 @@ const About = () => {
     "React",
     "Next.js",
     "TailwindCSS",
-    "Prisma",
-    "Neon Database",
+    "NeonDB",
     "SAP Fiori",
   ];
 
@@ -28,9 +27,9 @@ const About = () => {
       className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
     >
       {/* Background gradients */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-teal-900/20 to-blue-900/20"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-teal-500/15 via-transparent to-transparent"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-linear-to-br from-slate-900 via-teal-900/20 to-blue-900/20"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,var(--tw-gradient-stops))] from-teal-500/15 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-blue-500/10 via-transparent to-transparent"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
@@ -47,7 +46,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-3xl sm:text-4xl font-bold mb-4"
           >
-            <span className="bg-gradient-to-r from-teal-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-teal-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
               About Me
             </span>
           </motion.h2>
@@ -78,7 +77,7 @@ const About = () => {
               className="space-y-4 text-slate-300 leading-relaxed"
             >
               <p>
-                I'm a{" "}
+                I&apos;m a{" "}
                 <span className="text-blue-300 font-semibold">
                   Full Stack Developer
                 </span>{" "}
@@ -98,15 +97,15 @@ const About = () => {
                 <span className="text-indigo-300 font-semibold">
                   SAP Fiori development
                 </span>
-                . I'm driven by the challenge of architecting scalable,
+                . I&apos;m driven by the challenge of architecting scalable,
                 maintainable, and intuitive applications that address complex
                 business requirements.
               </p>
 
               <p>
-                Beyond development, I'm passionate about exploring emerging
+                Beyond development, I&apos;m passionate about exploring emerging
                 technologies, contributing to open-source initiatives, and
-                mentoring fellow developers. I'm committed to continuous growth
+                mentoring fellow developers. I&apos;m committed to continuous growth
                 and staying at the forefront of technological innovation in our
                 rapidly evolving industry.
               </p>
@@ -147,13 +146,15 @@ const About = () => {
               {/* Profile image */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-teal-400/30 shadow-2xl group relative">
-                  <img
+                  <Image
                     src="/images/photo.jpg"
                     alt="Mauricio Barragán"
+                    width={192}
+                    height={192}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                   {/* Subtle shimmer effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-full group-hover:translate-x-full"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform -translate-x-full group-hover:translate-x-full"></div>
                 </div>
               </div>
 
@@ -173,9 +174,11 @@ const About = () => {
                 }}
                 className="absolute top-8 right-8 w-24 h-24 bg-primary/30 rounded-lg hidden md:flex items-center justify-center cursor-pointer hover:bg-primary/40 transition-colors p-2"
               >
-                <img 
-                  src="/github-copilot.svg" 
-                  alt="GitHub Copilot Certification" 
+                <Image
+                  src="/github-copilot.svg"
+                  alt="GitHub Copilot Certification"
+                  width={96}
+                  height={96}
                   className="w-full h-full object-contain"
                 />
               </motion.a>

@@ -42,10 +42,10 @@ const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
           >
             <CardContent className="p-0">
               {/* Project Image */}
-              <div className="relative h-48 bg-linear-to-br from-primary/20 to-secondary/20 overflow-hidden">
+              <div className="relative h-36 bg-linear-to-br from-primary/20 to-secondary/20 overflow-hidden">
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-24 h-24 bg-linear-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
-                    <span className="text-2xl font-bold text-primary-foreground">
+                  <div className="w-16 h-16 bg-linear-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+                    <span className="text-xl font-bold text-primary-foreground">
                       {project.title.charAt(0)}
                     </span>
                   </div>
@@ -84,8 +84,8 @@ const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-3">
+              <div className="p-4">
+                <div className="flex items-start justify-between gap-2 mb-2">
                   {(() => {
                     const titleColors = [
                       "text-blue-400 group-hover:text-blue-300",
@@ -99,42 +99,28 @@ const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
                     const titleColorClass =
                       titleColors[index % titleColors.length];
 
-                    const subtitleColors = [
-                      "text-blue-200",
-                      "text-emerald-200",
-                      "text-purple-200",
-                      "text-rose-200",
-                      "text-cyan-200",
-                      "text-violet-200",
-                    ];
-
-                    const subtitleColorClass =
-                      subtitleColors[index % subtitleColors.length];
-
                     return (
-                      <div>
-                        <h3
-                          className={`text-xl font-semibold transition-colors ${titleColorClass}`}
-                        >
-                          {project.title}
-                        </h3>
-                        <p
-                          className={`text-sm font-medium ${subtitleColorClass} mt-1`}
-                        >
-                          {project.description}
-                        </p>
-                      </div>
+                      <h3
+                        className={`text-lg font-semibold transition-colors leading-tight ${titleColorClass}`}
+                      >
+                        {project.title}
+                      </h3>
                     );
                   })()}
                   {project.featured && (
-                    <Badge variant="default" className="text-xs">
+                    <Badge variant="default" className="text-xs shrink-0">
                       Featured
                     </Badge>
                   )}
                 </div>
 
+                {/* Full description (what it does + features) */}
+                <p className="text-slate-300 text-sm leading-relaxed mb-3">
+                  {project.longDescription}
+                </p>
+
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <TechBadge
                       key={tech}
@@ -147,7 +133,7 @@ const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex gap-3">
+                <div className="flex gap-2">
                   {project.liveUrl !== "#" && (
                     <Button asChild size="sm" className="flex-1 group/btn">
                       <a
