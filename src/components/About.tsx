@@ -171,7 +171,7 @@ const About = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute top-8 right-8 w-24 h-24 bg-primary/30 rounded-lg flex items-center justify-center cursor-pointer hover:bg-primary/40 transition-colors p-2"
+                className="absolute top-8 right-8 w-24 h-24 bg-primary/30 rounded-lg hidden md:flex items-center justify-center cursor-pointer hover:bg-primary/40 transition-colors p-2"
               >
                 <img 
                   src="/github-copilot.svg" 
