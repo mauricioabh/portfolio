@@ -1,14 +1,33 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Github, Linkedin, Mail, Download } from "lucide-react";
+import { Menu, X, Github, Linkedin, Mail, Download, Store } from "lucide-react";
+import confetti from "canvas-confetti";
 import { personalInfo, getSocialLinks } from "@/config/personal";
+
+// Konami code: ↑↑↓↓←→←→ B A (desktop only)
+const KONAMI_CODE = [
+  "ArrowUp",
+  "ArrowUp",
+  "ArrowDown",
+  "ArrowDown",
+  "ArrowLeft",
+  "ArrowRight",
+  "ArrowLeft",
+  "ArrowRight",
+  "KeyB",
+  "KeyA",
+];
+
+const VIBE_STORE_URL = "https://vibe-store-pi.vercel.app/";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [showVibeStore, setShowVibeStore] = useState(false);
+  const konamiIndexRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,7 +82,6 @@ const Header = () => {
       }
 
       setActiveSection(currentSection);
-      console.log("Active section:", currentSection); // Debug log
     };
 
     // Initial call to set active section
@@ -71,6 +89,33 @@ const Header = () => {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Konami code listener (desktop only)
+  useEffect(() => {
+    const isDesktop = () => window.matchMedia("(min-width: 768px)").matches;
+    if (!isDesktop()) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const expected = KONAMI_CODE[konamiIndexRef.current];
+      if (e.code === expected) {
+        konamiIndexRef.current += 1;
+        if (konamiIndexRef.current === KONAMI_CODE.length) {
+          setShowVibeStore(true);
+          konamiIndexRef.current = 0;
+          confetti({
+            particleCount: 80,
+            spread: 70,
+            origin: { y: 0.6 },
+          });
+        }
+      } else {
+        konamiIndexRef.current = 0;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const navItems = [
@@ -188,6 +233,22 @@ const Header = () => {
 
           {/* Social Links & Download CV */}
           <div className="hidden md:flex items-center gap-3">
+            {showVibeStore && (
+              <motion.a
+                href={VIBE_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-amber-400 transition-colors duration-300 p-2 rounded-lg hover:bg-slate-800/50 flex items-center gap-1.5"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+                <Store size={18} />
+                <span className="text-sm font-medium">Vibe Store</span>
+              </motion.a>
+            )}
             <motion.a
               href={personalInfo.github.url}
               target="_blank"
