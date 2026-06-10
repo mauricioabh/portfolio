@@ -6,7 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github, Eye, Package } from "lucide-react";
 import { Project } from "@/data/projects";
+import { getProjectDetails } from "@/data/project-details";
 import TechBadge from "./TechBadge";
+import ProjectDetailsDialog from "./ProjectDetailsDialog";
 
 interface ProjectCardProps {
   project: Project;
@@ -15,6 +17,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
+  const details = getProjectDetails(project.id);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -114,9 +118,8 @@ const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
                   )}
                 </div>
 
-                {/* Full description (what it does + features) */}
                 <p className="text-slate-300 text-sm leading-relaxed mb-3">
-                  {project.longDescription}
+                  {project.description}
                 </p>
 
                 {/* Technologies */}
@@ -132,48 +135,57 @@ const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
                   ))}
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-2">
-                  {project.liveUrl !== "#" && (
-                    <Button asChild size="sm" className="flex-1 group/btn">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
+                <div className="flex flex-col gap-2">
+                  <div className="flex gap-2">
+                    {project.liveUrl !== "#" && (
+                      <Button asChild size="sm" className="flex-1 group/btn">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          {project.liveUrl.includes("npmjs.com") ? (
+                            <Package size={16} />
+                          ) : (
+                            <Eye size={16} />
+                          )}
+                          {project.liveUrl.includes("npmjs.com")
+                            ? "NPM"
+                            : "Live Demo"}
+                          <ExternalLink
+                            size={14}
+                            className="group-hover/btn:translate-x-0.5 transition-transform"
+                          />
+                        </a>
+                      </Button>
+                    )}
+                    {project.githubUrl !== "#" && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 group/btn"
                       >
-                        {project.liveUrl.includes("npmjs.com") ? (
-                          <Package size={16} />
-                        ) : (
-                          <Eye size={16} />
-                        )}
-                        {project.liveUrl.includes("npmjs.com")
-                          ? "NPM"
-                          : "Live Demo"}
-                        <ExternalLink
-                          size={14}
-                          className="group-hover/btn:translate-x-0.5 transition-transform"
-                        />
-                      </a>
-                    </Button>
-                  )}
-                  {project.githubUrl !== "#" && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="flex-1 group/btn"
-                    >
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
-                      >
-                        <Github size={16} />
-                        Code
-                      </a>
-                    </Button>
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2"
+                        >
+                          <Github size={16} />
+                          Code
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                  {details && (
+                    <ProjectDetailsDialog
+                      project={project}
+                      details={details}
+                      index={index}
+                      isInView={isInView}
+                    />
                   )}
                 </div>
 
