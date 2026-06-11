@@ -74,7 +74,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 ### Watchily-ho
 - [x] Husky + lint-staged (M0 — local QA pending)
 - [ ] Sentry (web + Expo tags)
-- [ ] Zod + OpenAPI + Scalar (`/api-docs`)
+- [x] Zod + OpenAPI + Scalar (`/api-docs`) (M1 — local QA pending)
 - [ ] Inngest or Supabase Queues (watchlist refresh)
 - [ ] Upstash rate limit (search)
 - [ ] RLS integration tests in CI
@@ -84,7 +84,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 
 ### Arb Pulse
 - [x] Husky + lint-staged (M0 — local QA pending)
-- [ ] Refactor: Zod + zod-to-openapi + Scalar (remove Swagger UI)
+- [x] Refactor: Zod + zod-to-openapi + Scalar (M1 — local QA pending)
 - [ ] Sentry
 - [ ] Pino + correlation IDs
 - [ ] OpenTelemetry → Sentry
@@ -95,7 +95,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 
 ### CRT Líneas
 - [x] Husky + lint-staged (pre-existing; M0 Sentry docs)
-- [ ] Zod + OpenAPI + Scalar
+- [x] Zod + OpenAPI + Scalar (M1 — local QA pending)
 - [ ] Sentry
 - [ ] Pino + jobId (with Inngest)
 - [ ] Inngest bulk Playwright jobs
