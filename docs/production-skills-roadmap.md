@@ -72,7 +72,7 @@ Master plan for production practices across the six CV apps. **Linear** is the e
 Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in the same commit** (see user rule `readme-before-commit`).
 
 ### Watchily-ho
-- [ ] Husky + lint-staged
+- [x] Husky + lint-staged (M0 — local QA pending)
 - [ ] Sentry (web + Expo tags)
 - [ ] Zod + OpenAPI + Scalar (`/api-docs`)
 - [ ] Inngest or Supabase Queues (watchlist refresh)
@@ -80,10 +80,10 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [ ] RLS integration tests in CI
 - [ ] CodeQL
 - [ ] Playwright smoke (login → search → list)
-- [ ] README Production practices
+- [x] README Production practices (M0)
 
 ### Arb Pulse
-- [ ] Husky + lint-staged
+- [x] Husky + lint-staged (M0 — local QA pending)
 - [ ] Refactor: Zod + zod-to-openapi + Scalar (remove Swagger UI)
 - [ ] Sentry
 - [ ] Pino + correlation IDs
@@ -94,7 +94,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [ ] README Production practices
 
 ### CRT Líneas
-- [ ] Husky + lint-staged
+- [x] Husky + lint-staged (pre-existing; M0 Sentry docs)
 - [ ] Zod + OpenAPI + Scalar
 - [ ] Sentry
 - [ ] Pino + jobId (with Inngest)
@@ -104,7 +104,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [ ] README Production practices
 
 ### Health-erino
-- [ ] Husky + lint-staged
+- [x] Husky + lint-staged (M0 — local QA pending)
 - [ ] Sentry
 - [ ] Inngest Sheets → Neon sync
 - [ ] Langfuse (voice → Gemini → tools)
@@ -113,7 +113,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [ ] README Production practices
 
 ### Live Countdown Fortnite
-- [ ] Husky + lint-staged
+- [x] Husky + lint-staged (M0 — local QA pending)
 - [ ] Sentry (cron failures)
 - [ ] Favorites isolation test
 - [ ] Neon branching (optional)
