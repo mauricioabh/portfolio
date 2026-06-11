@@ -1,0 +1,173 @@
+# Production Skills — CV Impact Stack
+
+Master plan for production practices across the six CV apps. **Linear** is the execution backlog; this doc is the reference map.
+
+**Linear project:** [Production Skills — CV Impact Stack](https://linear.app/wayool/project/production-skills-cv-impact-stack-9837e285d1f6) (team **Wayool**, 25 issues WAY-5–WAY-32)  
+**Issues reference:** [linear-issues.md](./linear-issues.md)  
+**Branch policy:** [repo-branches.md](./repo-branches.md) — `dev` if present, else `main` / `master`; no new branches; no push until local QA
+
+---
+
+## CV apps (priority)
+
+| # | App | Repo | Stack highlights |
+|---|-----|------|------------------|
+| 1 | Watchily-ho | `watchily-ho` | Supabase RLS, 3 clients, 21 API routes |
+| 2 | Arb Pulse | `arbpulse` | Express, WebSocket, OpenAPI (→ Zod+Scalar) |
+| 3 | CRT Líneas | `crt-lineas` | Playwright, Clerk roles, Neon |
+| 4 | Health-erino | `health-erino` | Gemini tool-calling, Neon (no RLS) |
+| 5 | Live Countdown Fortnite | `fortnite-live-countdown` | Turborepo, cron, Zod ingest |
+| 6 | Env-ironmint | `env-ironmint` | NPM CLI, Jest, OSS |
+
+---
+
+## Key decisions
+
+| Topic | Decision |
+|-------|----------|
+| API docs | **Zod** → `@asteasolutions/zod-to-openapi` → **Scalar** at `/api-docs` |
+| Arb Pulse | Refactor from hand-written OpenAPI + Swagger UI (piloto) |
+| RLS audit | **Watchily only** (Supabase policies in `supabase/migrations/`) |
+| Neon apps | **API authorization tests** (Clerk), not Postgres RLS |
+| Observability | Sentry (5 apps), Langfuse (Health-erino), OTel (Arb Pulse), Pino (Arb Pulse, CRT) |
+| Jobs | Inngest: CRT, Health-erino, Watchily |
+| Cache | Upstash: Arb Pulse, Watchily |
+| DX | Husky + lint-staged on all CV repos |
+| Skip | tRPC, Vitest+MSW, Kafka |
+
+---
+
+## Milestones
+
+| Milestone | Weeks | Focus |
+|-----------|-------|-------|
+| **M0** Foundation | 1 | Husky, Sentry org, conventions |
+| **M1** API contracts | 2–3 | Zod+Scalar (Arb Pulse → Watchily → CRT) |
+| **M2** Observability | 3–4 | Sentry, Pino, OTel, Langfuse |
+| **M3** Async + resilience | 4–5 | Inngest, Upstash |
+| **M4** Security + data | 5–6 | RLS audit, auth audit, CodeQL, Neon branching |
+| **M5** CI + CV polish | 6–7 | Playwright smoke, CV bullets |
+
+**Critical path:** M0 → Arb Pulse M1 → Watchily M1+M4 RLS → Health-erino Langfuse → M5 CV.
+
+---
+
+## Matrix: app × technology
+
+| App | Scalar | Sentry | Inngest | Langfuse | Upstash | OTel | Pino | RLS/Auth tests | Husky | Playwright CI |
+|-----|:------:|:------:|:-------:|:--------:|:-------:|:----:|:----:|:--------------:|:-----:|:-------------:|
+| Watchily | ✅ | ✅ | ✅ | — | ✅ | — | — | RLS | ✅ | ✅ |
+| Arb Pulse | ✅ piloto | ✅ | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ |
+| CRT Líneas | ✅ | ✅ | ✅ | — | ⚪ | — | ✅ | Auth | ✅ | — |
+| Health-erino | ⚪ | ✅ | ✅ | ✅ | — | — | — | Auth | ✅ | ⚪ |
+| Fortnite | — | ✅ | — | — | — | — | — | Favorites | ✅ | ✅ exists |
+| Env-ironmint | — | — | — | — | — | — | — | — | ✅ | CI doc |
+
+---
+
+## Per-app checklist
+
+Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in the same commit** (see user rule `readme-before-commit`).
+
+### Watchily-ho
+- [ ] Husky + lint-staged
+- [ ] Sentry (web + Expo tags)
+- [ ] Zod + OpenAPI + Scalar (`/api-docs`)
+- [ ] Inngest or Supabase Queues (watchlist refresh)
+- [ ] Upstash rate limit (search)
+- [ ] RLS integration tests in CI
+- [ ] CodeQL
+- [ ] Playwright smoke (login → search → list)
+- [ ] README Production practices
+
+### Arb Pulse
+- [ ] Husky + lint-staged
+- [ ] Refactor: Zod + zod-to-openapi + Scalar (remove Swagger UI)
+- [ ] Sentry
+- [ ] Pino + correlation IDs
+- [ ] OpenTelemetry → Sentry
+- [ ] Upstash rate limit + cache
+- [ ] CodeQL
+- [ ] Playwright smoke (dashboard + SSE)
+- [ ] README Production practices
+
+### CRT Líneas
+- [ ] Husky + lint-staged
+- [ ] Zod + OpenAPI + Scalar
+- [ ] Sentry
+- [ ] Pino + jobId (with Inngest)
+- [ ] Inngest bulk Playwright jobs
+- [ ] API authorization tests
+- [ ] CodeQL (extend existing)
+- [ ] README Production practices
+
+### Health-erino
+- [ ] Husky + lint-staged
+- [ ] Sentry
+- [ ] Inngest Sheets → Neon sync
+- [ ] Langfuse (voice → Gemini → tools)
+- [ ] API authorization tests
+- [ ] Neon branching (GitHub integration)
+- [ ] README Production practices
+
+### Live Countdown Fortnite
+- [ ] Husky + lint-staged
+- [ ] Sentry (cron failures)
+- [ ] Favorites isolation test
+- [ ] Neon branching (optional)
+- [ ] Document existing Playwright E2E in README/CV
+- [ ] README Production practices
+
+### Env-ironmint
+- [ ] Husky + lint-staged
+- [ ] Dependabot
+- [ ] GitHub Actions example (`npx env-ironmint` in CI)
+- [ ] README Production practices / CI section
+
+### Portfolio / CV (M5)
+- [ ] Update `src/data/project-details.ts` bullets
+- [ ] Update external CV text
+
+---
+
+## CV bullets (draft — apply after M5)
+
+**Watchily-ho:** Zod-validated OpenAPI (Scalar); RLS policies tested in CI; Sentry across web/mobile/TV; async jobs; Upstash rate limiting.
+
+**Arb Pulse:** Contract-first API (Zod → OpenAPI → Scalar); Sentry + OpenTelemetry tracing; structured logging; Upstash rate limit.
+
+**CRT Líneas:** OpenAPI-documented monitor API; Inngest durable Playwright jobs; API authorization tests; CodeQL.
+
+**Health-erino:** Langfuse LLM tracing for voice tool-calling; Inngest background sync; API authorization tests; Neon preview branches.
+
+**Fortnite:** Zod-validated ingestion; Sentry on cron failures; Playwright E2E in CI.
+
+**Env-ironmint:** Husky pre-commit; documented CI integration; Dependabot.
+
+---
+
+## Documentation layers
+
+| Layer | Location |
+|-------|----------|
+| Execution | Linear project + issues |
+| Master plan | This file |
+| Per-repo evidence | Each repo `README.md` → `## Production practices` |
+| CV | PDF/LinkedIn + `project-details.ts` |
+| Agent rules | `~/.cursor/rules/readme-before-commit.mdc` |
+
+---
+
+## Execution order (weeks)
+
+1. **W1:** M0 — Husky all repos, Sentry setup  
+2. **W2:** Arb Pulse Zod+Scalar refactor  
+3. **W3:** Watchily OpenAPI + Sentry  
+4. **W4:** Watchily RLS audit + Health-erino Langfuse + CRT Sentry  
+5. **W5:** Inngest (CRT, Health-erino, Watchily) + Upstash Arb Pulse  
+6. **W6:** Auth audits + Playwright smokes + Neon branching  
+7. **W7:** CV bullets + CRT OpenAPI + OTel Arb Pulse  
+
+---
+
+*Last updated: 2026-06-10*

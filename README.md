@@ -2,6 +2,13 @@
 
 A modern, dark-themed portfolio website built with Next.js, React, TailwindCSS, shadcn/ui, Framer Motion, and TypeScript. Features a comprehensive tech stack showcase with consistent technology badges, smooth animations, and responsive design.
 
+## Engineering roadmap
+
+Cross-project production skills plan (Sentry, Zod+Scalar, Inngest, Langfuse, etc.) for CV apps:
+
+- **[Production Skills Roadmap](./docs/production-skills-roadmap.md)** — master plan and per-app checklist
+- **[Linear issues import](./docs/linear-issues.md)** — paste into `/linear-issue` in Cursor
+
 ## 🚀 Features
 
 - **Modern Design**: Dark theme with elegant color palette and gradient effects
