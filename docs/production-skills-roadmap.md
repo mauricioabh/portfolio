@@ -127,6 +127,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [x] README Production practices / CI section (M5 — local QA pending)
 
 ### Portfolio / CV (M5)
+- [x] Dependabot (npm + GitHub Actions) (M4)
 - [x] Update `src/data/project-details.ts` bullets (M5 — local QA pending)
 - [ ] Update external CV text
 

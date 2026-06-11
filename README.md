@@ -12,6 +12,8 @@ Cross-project production skills plan (Sentry, Zod+Scalar, Inngest, Langfuse, etc
 
 Featured CV apps expose **Production Practices** in each project Details dialog (`src/data/project-details.ts`), aligned with the roadmap checklist (M5).
 
+**This repo:** Dependabot (`.github/dependabot.yml`) for weekly npm and GitHub Actions updates.
+
 ## 🚀 Features
 
 - **Modern Design**: Dark theme with elegant color palette and gradient effects
