@@ -75,10 +75,10 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [x] Husky + lint-staged (M0 — local QA pending)
 - [ ] Sentry (web + Expo tags)
 - [x] Zod + OpenAPI + Scalar (`/api-docs`) (M1 — local QA pending)
-- [ ] Inngest or Supabase Queues (watchlist refresh)
-- [ ] Upstash rate limit (search)
-- [ ] RLS integration tests in CI
-- [ ] CodeQL
+- [x] Inngest or Supabase Queues (watchlist refresh) (M3 — local QA pending)
+- [x] Upstash rate limit (search) (M3 — local QA pending)
+- [x] RLS integration tests in CI
+- [x] CodeQL
 - [ ] Playwright smoke (login → search → list)
 - [x] README Production practices (M0)
 
@@ -88,33 +88,33 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [ ] Sentry
 - [ ] Pino + correlation IDs
 - [ ] OpenTelemetry → Sentry
-- [ ] Upstash rate limit + cache
-- [ ] CodeQL
+- [x] Upstash rate limit + cache (M3 — local QA pending)
+- [x] CodeQL
 - [ ] Playwright smoke (dashboard + SSE)
 - [ ] README Production practices
 
 ### CRT Líneas
 - [x] Husky + lint-staged (pre-existing; M0 Sentry docs)
 - [x] Zod + OpenAPI + Scalar (M1 — local QA pending)
-- [ ] Sentry
+- [x] Sentry (M2 — local QA pending)
 - [ ] Pino + jobId (with Inngest)
-- [ ] Inngest bulk Playwright jobs
-- [ ] API authorization tests
-- [ ] CodeQL (extend existing)
-- [ ] README Production practices
+- [x] Inngest bulk Playwright jobs (M3 — local QA pending)
+- [x] API authorization tests
+- [x] CodeQL (extend existing)
+- [x] README Production practices
 
 ### Health-erino
 - [x] Husky + lint-staged (M0 — local QA pending)
-- [ ] Sentry
-- [ ] Inngest Sheets → Neon sync
-- [ ] Langfuse (voice → Gemini → tools)
-- [ ] API authorization tests
-- [ ] Neon branching (GitHub integration)
-- [ ] README Production practices
+- [x] Sentry (M2 — local QA pending)
+- [x] Inngest Sheets → Neon sync (M3 — local QA pending)
+- [x] Langfuse (voice → Gemini → tools) (M2 — local QA pending)
+- [x] API authorization tests
+- [x] Neon branching (GitHub integration)
+- [x] README Production practices
 
 ### Live Countdown Fortnite
 - [x] Husky + lint-staged (M0 — local QA pending)
-- [ ] Sentry (cron failures)
+- [x] Sentry (cron failures) (M2 — local QA pending)
 - [ ] Favorites isolation test
 - [ ] Neon branching (optional)
 - [ ] Document existing Playwright E2E in README/CV
@@ -122,13 +122,16 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 
 ### Env-ironmint
 - [ ] Husky + lint-staged
-- [ ] Dependabot
+- [x] Dependabot
 - [ ] GitHub Actions example (`npx env-ironmint` in CI)
 - [ ] README Production practices / CI section
 
 ### Portfolio / CV (M5)
 - [ ] Update `src/data/project-details.ts` bullets
 - [ ] Update external CV text
+
+### Portfolio docs (M3)
+- [x] Reusable Inngest pattern doc (`docs/inngest-pattern.md`) (M3 — local QA pending)
 
 ---
 
@@ -172,4 +175,4 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 
 ---
 
-*Last updated: 2026-06-10*
+*Last updated: 2026-06-11*

@@ -7,6 +7,7 @@ A modern, dark-themed portfolio website built with Next.js, React, TailwindCSS, 
 Cross-project production skills plan (Sentry, Zod+Scalar, Inngest, Langfuse, etc.) for CV apps:
 
 - **[Production Skills Roadmap](./docs/production-skills-roadmap.md)** — master plan and per-app checklist
+- **[Inngest pattern](./docs/inngest-pattern.md)** — reusable `serve()` setup for Next.js CV apps
 - **[Linear issues import](./docs/linear-issues.md)** — paste into `/linear-issue` in Cursor
 
 ## 🚀 Features
