@@ -73,7 +73,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 
 ### Watchily-ho
 - [x] Husky + lint-staged (M0 — local QA pending)
-- [ ] Sentry (web + Expo tags)
+- [x] Sentry (web + Expo tags) (M2 — local QA pending)
 - [x] Zod + OpenAPI + Scalar (`/api-docs`) (M1 — local QA pending)
 - [x] Inngest or Supabase Queues (watchlist refresh) (M3 — local QA pending)
 - [x] Upstash rate limit (search) (M3 — local QA pending)
@@ -85,9 +85,9 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 ### Arb Pulse
 - [x] Husky + lint-staged (M0 — local QA pending)
 - [x] Refactor: Zod + zod-to-openapi + Scalar (M1 — local QA pending)
-- [ ] Sentry
-- [ ] Pino + correlation IDs
-- [ ] OpenTelemetry → Sentry
+- [x] Sentry (M2 — local QA pending)
+- [x] Pino + correlation IDs (M2 — local QA pending)
+- [x] OpenTelemetry → Sentry (M2 — local QA pending)
 - [x] Upstash rate limit + cache (M3 — local QA pending)
 - [x] CodeQL
 - [x] Playwright smoke (dashboard + SSE) (M5 — local QA pending)
