@@ -42,6 +42,8 @@ Master plan for production practices across the six CV apps. **Linear** is the e
 | Milestone | Weeks | Focus |
 |-----------|-------|-------|
 | **M0** Foundation | 1 | Husky, Sentry org, conventions |
+
+**Sentry manual setup:** [sentry-projects.md](./sentry-projects.md) — create 5 projects and paste DSNs locally only.
 | **M1** API contracts | 2–3 | Zod+Scalar (Arb Pulse → Watchily → CRT) |
 | **M2** Observability | 3–4 | Sentry, Pino, OTel, Langfuse |
 | **M3** Async + resilience | 4–5 | Inngest, Upstash |
