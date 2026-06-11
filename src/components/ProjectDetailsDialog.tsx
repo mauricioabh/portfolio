@@ -18,6 +18,7 @@ import {
   Layers,
   ListChecks,
   Route,
+  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 import { Project } from "@/data/projects";
@@ -106,6 +107,22 @@ const ProjectDetailsDialog = ({
               ))}
             </ul>
           </DetailSection>
+
+          {details.productionPractices && details.productionPractices.length > 0 && (
+            <DetailSection
+              title="Production Practices"
+              icon={<ShieldCheck size={16} className="text-orange-400" />}
+            >
+              <ul className="space-y-1.5 text-slate-300">
+                {details.productionPractices.map((practice) => (
+                  <li key={practice} className="flex gap-2 leading-relaxed">
+                    <span className="text-orange-400 mt-1.5 size-1.5 shrink-0 rounded-full bg-orange-400" />
+                    <span>{practice}</span>
+                  </li>
+                ))}
+              </ul>
+            </DetailSection>
+          )}
 
           <DetailSection
             title="Process & Flows"

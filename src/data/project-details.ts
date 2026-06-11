@@ -1,6 +1,7 @@
 export interface ProjectDetails {
   overview: string;
   features: string[];
+  productionPractices?: string[];
   flows: string[];
   howToUse: string[];
   architecture: string;
@@ -17,6 +18,13 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Gemini via Vercel AI SDK with tool calls against Neon",
       "Medication list and CSV upload flows on mobile",
       "Neon PostgreSQL as the single source of truth for medications",
+    ],
+    productionPractices: [
+      "Husky pre-commit with lint-staged across web and Expo workspaces",
+      "Langfuse LLM tracing for voice tool-calling (/api/chat → Gemini → Neon tools)",
+      "Inngest background sync from Google Sheets CSV into Neon (6h cron)",
+      "Vitest API authorization tests for protected admin and chat routes",
+      "Neon preview branches via GitHub integration for safe schema changes",
     ],
     flows: [
       "Admin signs in via Clerk and opens /admin to sync medications from Google Sheets or manage records manually",
@@ -74,6 +82,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "React dashboard with SSE live updates, P&L chart, and controls",
       "Demo mode with synthetic divergences and optional NDJSON feed recording",
     ],
+    productionPractices: [
+      "Contract-first REST API: Zod schemas → OpenAPI → Scalar at /api-docs",
+      "Sentry error capture with OpenTelemetry spans and pino structured logging (correlation IDs)",
+      "Playwright smoke in CI: dashboard loads and SSE stream delivers live engine state",
+    ],
     flows: [
       "Exchange WebSocket feeds normalize order books into OrderBookManager",
       "ArbitrageEngine compares venue pairs and scores net profit after fees",
@@ -101,6 +114,12 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Sync command to bootstrap .env.local from .env.example",
       "Git integration to verify .gitignore and tracked sensitive files",
       "Colorful CLI output with table, JSON, or summary formats",
+    ],
+    productionPractices: [
+      "Husky pre-commit with lint-staged on TypeScript sources",
+      "Jest unit and integration tests with CI coverage gate",
+      "Example GitHub Actions workflow runs npx env-ironmint validate --git on pull requests",
+      "Dependabot for npm dependency updates",
     ],
     flows: [
       "CLI scans the project directory for all .env* files",
@@ -166,7 +185,7 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Presets and graph state persist in browser localStorage",
     ],
     howToUse: [
-      "Open beatstack-mauricioabh.vercel.app",
+      "Open beatstack-mauricioabh.onrender.com",
       "Drag nodes (genre, mood, BPM, vocals, etc.) onto the canvas and connect them",
       "Copy the assembled prompt from the output panel for use in Suno",
       "Optionally use Describe your song to auto-fill nodes from a text description",
@@ -214,6 +233,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Clerk auth (email/password + Google) on web and mobile",
       "Favorites, history, jam tracks, and tienda sections",
     ],
+    productionPractices: [
+      "Husky monorepo pre-commit with lint-staged on TypeScript sources",
+      "Zod validation for env config and fortnite-api ingest payloads",
+      "Playwright E2E in GitHub Actions on pull requests (production Next.js build + Chromium)",
+    ],
     flows: [
       "Daily cron calls fortnite-api endpoints and upserts events into Neon",
       "Web/mobile clients read cached data from Next.js API (not live API per visit)",
@@ -241,6 +265,12 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Bulk monitor via SSE stream (up to 150 links, shared Chromium context)",
       "Screenshot capture for manual review of verification results",
       "Admin role for sync, enable/disable companies, and ingest control",
+    ],
+    productionPractices: [
+      "Husky pre-commit with lint-staged on TypeScript sources",
+      "Zod-documented monitor and companies API with Scalar at /api-docs",
+      "Vitest API authorization tests for ingest and company-link routes",
+      "Playwright-driven CRT portal ingest and per-operator link verification",
     ],
     flows: [
       "User signs in via Clerk (Google or email) and sets up verification profile (CURP/phone)",
@@ -325,6 +355,13 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Expo mobile app with React Navigation (Home, Search, Title, Lists, Settings)",
       "LG TV Web App at /tv with pairing-code second-screen login",
       "Watchmode API primary with Streaming Availability fallback",
+    ],
+    productionPractices: [
+      "Husky pre-commit with lint-staged on TypeScript sources",
+      "Zod-validated OpenAPI contract with Scalar UI at /api-docs",
+      "Sentry on web, Expo mobile, and LG TV surfaces with platform tags",
+      "Inngest watchlist refresh jobs and Upstash rate limiting on search",
+      "Supabase RLS isolation tests in CI; CodeQL; Playwright landing smoke on PRs",
     ],
     flows: [
       "User signs in via Supabase (web cookies or mobile OAuth deep link)",

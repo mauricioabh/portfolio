@@ -79,7 +79,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [x] Upstash rate limit (search) (M3 — local QA pending)
 - [x] RLS integration tests in CI
 - [x] CodeQL
-- [ ] Playwright smoke (login → search → list)
+- [x] Playwright smoke (landing loads on PRs) (M5 — local QA pending)
 - [x] README Production practices (M0)
 
 ### Arb Pulse
@@ -90,8 +90,8 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [ ] OpenTelemetry → Sentry
 - [x] Upstash rate limit + cache (M3 — local QA pending)
 - [x] CodeQL
-- [ ] Playwright smoke (dashboard + SSE)
-- [ ] README Production practices
+- [x] Playwright smoke (dashboard + SSE) (M5 — local QA pending)
+- [x] README Production practices (M5 — local QA pending)
 
 ### CRT Líneas
 - [x] Husky + lint-staged (pre-existing; M0 Sentry docs)
@@ -117,17 +117,17 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [x] Sentry (cron failures) (M2 — local QA pending)
 - [ ] Favorites isolation test
 - [ ] Neon branching (optional)
-- [ ] Document existing Playwright E2E in README/CV
-- [ ] README Production practices
+- [x] Document existing Playwright E2E in README/CV (M5 — local QA pending)
+- [x] README Production practices (M5 — local QA pending)
 
 ### Env-ironmint
-- [ ] Husky + lint-staged
+- [x] Husky + lint-staged (M0 — local QA pending)
 - [x] Dependabot
-- [ ] GitHub Actions example (`npx env-ironmint` in CI)
-- [ ] README Production practices / CI section
+- [x] GitHub Actions example (`npx env-ironmint` in CI) (M5 — local QA pending)
+- [x] README Production practices / CI section (M5 — local QA pending)
 
 ### Portfolio / CV (M5)
-- [ ] Update `src/data/project-details.ts` bullets
+- [x] Update `src/data/project-details.ts` bullets (M5 — local QA pending)
 - [ ] Update external CV text
 
 ### Portfolio docs (M3)

@@ -10,6 +10,8 @@ Cross-project production skills plan (Sentry, Zod+Scalar, Inngest, Langfuse, etc
 - **[Inngest pattern](./docs/inngest-pattern.md)** — reusable `serve()` setup for Next.js CV apps
 - **[Linear issues import](./docs/linear-issues.md)** — paste into `/linear-issue` in Cursor
 
+Featured CV apps expose **Production Practices** in each project Details dialog (`src/data/project-details.ts`), aligned with the roadmap checklist (M5).
+
 ## 🚀 Features
 
 - **Modern Design**: Dark theme with elegant color palette and gradient effects
