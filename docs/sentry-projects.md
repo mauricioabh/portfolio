@@ -1,23 +1,67 @@
-# Sentry projects — manual setup (M0)
+# Sentry projects — setup (M0 / WAY-7)
 
-Create these five projects in the [Sentry](https://sentry.io) org (one DSN per app). Do **not** commit real DSN values — each repo documents `SENTRY_DSN=` in `.env.example`.
+Org: **[mauricio-barragan](https://mauricio-barragan.sentry.io)** · region `https://us.sentry.io` · team `mauricio-barragan`
 
-| Sentry project name | Repo | Env file |
-|---------------------|------|----------|
-| `watchily-ho` | [watchily-ho](https://github.com/mauricioabh/watchily-ho) | `.env.example` (root) |
-| `arbpulse` | [arbpulse](https://github.com/mauricioabh/arbpulse) | `.env.example` |
-| `crt-lineas` | [crt-lineas](https://github.com/mauricioabh/crt-lineas) | `.env.example` |
-| `health-erino` | [health-erino](https://github.com/mauricioabh/health-erino) | `web/.env.example` |
-| `fortnite-live-countdown` | [fortnite-live-countdown](https://github.com/mauricioabh/fortnite-live-countdown) | `apps/web/.env.example` |
+Create these five projects (one DSN per app). Do **not** commit real DSN values — each repo documents `SENTRY_DSN=` in `.env.example`.
 
-**Checklist**
+| Sentry project name | Platform | Repo | Env file |
+|---------------------|----------|------|----------|
+| `watchily-ho` | Next.js (+ Expo mobile) | [watchily-ho](https://github.com/mauricioabh/watchily-ho) | `.env.example` (root) |
+| `arbpulse` | Node.js | [arbpulse](https://github.com/mauricioabh/arbpulse) | `.env.example` |
+| `crt-lineas` | Next.js | [crt-lineas](https://github.com/mauricioabh/crt-lineas) | `.env.example` |
+| `health-erino` | Next.js | [health-erino](https://github.com/mauricioabh/health-erino) | `web/.env.example` |
+| `fortnite-live-countdown` | Next.js | [fortnite-live-countdown](https://github.com/mauricioabh/fortnite-live-countdown) | `apps/web/.env.example` |
 
-- [ ] Create org / confirm team access
-- [ ] Create project `watchily-ho` (Next.js + Expo tags later)
-- [ ] Create project `arbpulse` (Node.js)
-- [ ] Create project `crt-lineas` (Next.js)
-- [ ] Create project `health-erino` (Next.js)
-- [ ] Create project `fortnite-live-countdown` (Next.js, cron alerts)
-- [ ] Paste DSNs into local `.env` / `.env.local` only (never git)
+## Verified via Sentry MCP (2026-06-11)
+
+- Org access: OK (`find_organizations`)
+- Existing projects (unrelated): `javascript-nextjs`, `labby-dabby`, `mangatrack`
+- **CV projects above: not created yet**
+- `create_project` via MCP: **403** — *"Your organization has disabled this feature for members"*
+
+### Unblock MCP / API project creation (optional)
+
+In Sentry: **Settings → Organization → General** (or **Members** / role permissions) and allow **members to create projects**, or create projects as org **Owner** in the UI.
+
+### Manual UI steps (works today)
+
+1. Open [mauricio-barragan.sentry.io](https://mauricio-barragan.sentry.io)
+2. **Projects → Create Project** for each row in the table (match slug/name)
+3. Copy DSN → paste into local `.env.local` only (never git)
+4. Smoke test: `GET /api/debug/sentry` (or equivalent) per repo README
+
+After projects exist, the agent can run `find_dsns` via Sentry MCP to list DSNs (read-only).
+
+## Sentry probe verification
+
+After `SENTRY_DSN` is in each repo’s `.env.local`:
+
+```powershell
+# All five apps (starts dev servers sequentially)
+powershell -ExecutionPolicy Bypass -File scripts/verify-sentry-probes.ps1
+```
+
+Per repo:
+
+| Repo | Command | Probe URL |
+|------|---------|-----------|
+| watchily-ho | `npm run test:observability` | `/api/debug/sentry` |
+| arbpulse | `npm run test:observability` | `/api/debug/sentry` |
+| crt-lineas | `npm run test:observability` (dev running) | `/api/debug/sentry` |
+| health-erino | `cd web && npm run test:observability` | `/api/debug/sentry` |
+| fortnite | `cd apps/web && npm run test:observability` | `/api/debug/sentry` |
+
+Probes are disabled only when `VERCEL_ENV=production`. Clerk-protected apps expose `/api/debug/sentry` as a public route.
+
+## Checklist
+
+- [x] Confirm org / team access
+- [x] Create project `watchily-ho`
+- [x] Create project `arbpulse`
+- [x] Create project `crt-lineas`
+- [x] Create project `health-erino`
+- [x] Create project `fortnite-live-countdown`
+- [ ] Paste DSNs into local `.env` / `.env.local` only (never git) — user done locally
+- [ ] Resolve test issues in Sentry UI after QA (optional)
 
 See also: [production-skills-roadmap.md](./production-skills-roadmap.md) M0 Foundation.
