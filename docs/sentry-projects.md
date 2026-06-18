@@ -16,7 +16,7 @@ Create these five projects (one DSN per app). Do **not** commit real DSN values 
 
 - Org access: OK (`find_organizations`)
 - Existing projects (unrelated): `javascript-nextjs`, `labby-dabby`, `mangatrack`
-- **CV projects above: not created yet**
+- **CV projects above: created** (see checklist below)
 - `create_project` via MCP: **403** — *"Your organization has disabled this feature for members"*
 
 ### Unblock MCP / API project creation (optional)
@@ -61,7 +61,7 @@ Probes are disabled only when `VERCEL_ENV=production`. Clerk-protected apps expo
 - [x] Create project `crt-lineas`
 - [x] Create project `health-erino`
 - [x] Create project `fortnite-live-countdown`
-- [ ] Paste DSNs into local `.env` / `.env.local` only (never git) — user done locally
+- [x] Paste DSNs into local `.env` / `.env.local` only (never git) — verified locally (2026-06-12)
 - [ ] Resolve test issues in Sentry UI after QA (optional)
 
 See also: [production-skills-roadmap.md](./production-skills-roadmap.md) M0 Foundation.

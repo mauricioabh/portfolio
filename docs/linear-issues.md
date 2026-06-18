@@ -11,6 +11,8 @@
 | M4 Security | WAY-23, WAY-22, WAY-24, WAY-26, WAY-28, WAY-27 |
 | M5 CI polish | WAY-25, WAY-31, WAY-30, WAY-29, WAY-32 |
 
+**Local QA tracking:** [production-skills-qa.md](./production-skills-qa.md) (M1 ✅ · M5 ✅ · M4 next)
+
 ---
 
 ## Original import template (archive)

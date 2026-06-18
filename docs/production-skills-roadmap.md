@@ -4,6 +4,7 @@ Master plan for production practices across the six CV apps. **Linear** is the e
 
 **Linear project:** [Production Skills — CV Impact Stack](https://linear.app/wayool/project/production-skills-cv-impact-stack-9837e285d1f6) (team **Wayool**, 25 issues WAY-5–WAY-32)  
 **Issues reference:** [linear-issues.md](./linear-issues.md)  
+**Local QA checklist:** [production-skills-qa.md](./production-skills-qa.md) — M1 ✅ M5 ✅ · M4 next  
 **Branch policy:** [repo-branches.md](./repo-branches.md) — `dev` if present, else `main` / `master`; no new branches; no push until local QA
 
 ---
@@ -72,48 +73,48 @@ Master plan for production practices across the six CV apps. **Linear** is the e
 Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in the same commit** (see user rule `readme-before-commit`).
 
 ### Watchily-ho
-- [x] Husky + lint-staged (M0 — local QA pending)
+- [x] Husky + lint-staged (M0 — local QA OK)
 - [x] Sentry (web + Expo tags) (M2 — local QA pending)
 - [x] Zod + OpenAPI + Scalar (`/api-docs`) (M1 — local QA pending)
-- [x] Inngest or Supabase Queues (watchlist refresh) (M3 — local QA pending)
-- [x] Upstash rate limit (search) (M3 — local QA pending)
+- [x] Inngest or Supabase Queues (watchlist refresh) (M3 — local QA OK)
+- [x] Upstash rate limit (search) (M3 — local QA OK)
 - [x] RLS integration tests in CI
 - [x] CodeQL
 - [x] Playwright smoke (landing loads on PRs) (M5 — local QA pending)
 - [x] README Production practices (M0)
 
 ### Arb Pulse
-- [x] Husky + lint-staged (M0 — local QA pending)
+- [x] Husky + lint-staged (M0 — local QA OK)
 - [x] Refactor: Zod + zod-to-openapi + Scalar (M1 — local QA pending)
 - [x] Sentry (M2 — local QA pending)
 - [x] Pino + correlation IDs (M2 — local QA pending)
 - [x] OpenTelemetry → Sentry (M2 — local QA pending)
-- [x] Upstash rate limit + cache (M3 — local QA pending)
+- [x] Upstash rate limit + cache (M3 — local QA OK)
 - [x] CodeQL
-- [x] Playwright smoke (dashboard + SSE) (M5 — local QA pending)
+- [x] Playwright smoke (dashboard + SSE) (M5 — local QA OK)
 - [x] README Production practices (M5 — local QA pending)
 
 ### CRT Líneas
-- [x] Husky + lint-staged (pre-existing; M0 Sentry docs)
+- [x] Husky + lint-staged (M0 — local QA OK)
 - [x] Zod + OpenAPI + Scalar (M1 — local QA pending)
 - [x] Sentry (M2 — local QA pending)
 - [ ] Pino + jobId (with Inngest)
-- [x] Inngest bulk Playwright jobs (M3 — local QA pending)
+- [x] Inngest bulk Playwright jobs (M3 — local QA OK)
 - [x] API authorization tests
 - [x] CodeQL (extend existing)
 - [x] README Production practices
 
 ### Health-erino
-- [x] Husky + lint-staged (M0 — local QA pending)
+- [x] Husky + lint-staged (M0 — local QA OK)
 - [x] Sentry (M2 — local QA pending)
-- [x] Inngest Sheets → Neon sync (M3 — local QA pending)
-- [x] Langfuse (voice → Gemini → tools) (M2 — local QA pending)
+- [x] Inngest Sheets → Neon sync (M3 — local QA OK)
+- [x] Langfuse (voice → Gemini → tools) (M2 — local QA OK)
 - [x] API authorization tests
 - [x] Neon branching (GitHub integration)
 - [x] README Production practices
 
 ### Live Countdown Fortnite
-- [x] Husky + lint-staged (M0 — local QA pending)
+- [x] Husky + lint-staged (M0 — local QA OK)
 - [x] Sentry (cron failures) (M2 — local QA pending)
 - [ ] Favorites isolation test
 - [ ] Neon branching (optional)
@@ -121,7 +122,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [x] README Production practices (M5 — local QA pending)
 
 ### Env-ironmint
-- [x] Husky + lint-staged (M0 — local QA pending)
+- [x] Husky + lint-staged (M0 — local QA OK)
 - [x] Dependabot
 - [x] GitHub Actions example (`npx env-ironmint` in CI) (M5 — local QA pending)
 - [x] README Production practices / CI section (M5 — local QA pending)
@@ -132,7 +133,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 - [ ] Update external CV text
 
 ### Portfolio docs (M3)
-- [x] Reusable Inngest pattern doc (`docs/inngest-pattern.md`) (M3 — local QA pending)
+- [x] Reusable Inngest pattern doc (`docs/inngest-pattern.md`) (M3 — local QA OK)
 
 ---
 

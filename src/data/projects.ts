@@ -106,7 +106,7 @@ export const projects: Project[] = [
     longDescription:
       "Node-based React Flow canvas to assemble Suno prompts from typed nodes (genre, mood, BPM, vocals, structure). Optional Gemini integration evaluates prompts and auto-configures from natural-language descriptions. PWA with localStorage presets and URL sharing.",
     image: "/projects/beatstack.jpg",
-    liveUrl: "https://beatstack-mauricioabh.vercel.app/",
+    liveUrl: "https://beatstack-mauricioabh.onrender.com/",
     githubUrl: "https://github.com/mauricioabh/beatstack",
     technologies: [
       "Next.js",
