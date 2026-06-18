@@ -10,7 +10,7 @@
     "generate-og": "node generate-og-image.js"
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "^1.1.16",
+    "@radix-ui/react-dialog": "^1.1.17",
     "@radix-ui/react-slot": "^1.2.3",
     "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.1",
