@@ -119,7 +119,7 @@ const ProjectCard = ({ project, index, isInView }: ProjectCardProps) => {
                 </div>
 
                 <p className="text-slate-300 text-sm leading-relaxed mb-3">
-                  {project.description}
+                  {project.longDescription}
                 </p>
 
                 {/* Technologies */}

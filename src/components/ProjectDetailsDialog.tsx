@@ -82,7 +82,7 @@ const ProjectDetailsDialog = ({
             )}
           </div>
           <DialogDescription className="text-base text-slate-300 leading-relaxed">
-            {project.description}
+            {project.longDescription}
           </DialogDescription>
         </DialogHeader>
 

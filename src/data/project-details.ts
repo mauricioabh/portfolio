@@ -21,10 +21,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
     ],
     productionPractices: [
       "Husky pre-commit with lint-staged across web and Expo workspaces",
-      "Langfuse LLM tracing for voice tool-calling (/api/chat → Gemini → Neon tools)",
-      "Inngest background sync from Google Sheets CSV into Neon (6h cron)",
-      "Vitest API authorization tests for protected admin and chat routes",
-      "Neon preview branches via GitHub integration for safe schema changes",
+      "Langfuse LLM tracing for voice tool-calling (/api/chat → Gemini → Neon tools) with medication names redacted",
+      "Inngest background sync from Google Sheets CSV into Neon (6h cron + manual event)",
+      "Vitest API authorization tests for protected admin, sync, and chat routes (7/7 in CI)",
+      "Neon preview branches via GitHub integration for safe schema changes per PR",
+      "Sentry on web app; CodeQL and Dependabot in GitHub Actions",
     ],
     flows: [
       "Admin signs in via Clerk and opens /admin to sync medications from Google Sheets or manage records manually",
@@ -49,15 +50,16 @@ export const projectDetails: Record<string, ProjectDetails> = {
     features: [
       "PDF lab report upload and AI extraction/interpretation with Gemini",
       "Classification of results as normal, abnormal, or critical",
-      "Contextual AI chatbot about uploaded reports",
+      "Contextual AI chatbot about uploaded reports with full report context",
       "Health notes diary with tags and CRUD",
       "Shareable read-only report links with expiring token",
       "Dashboard with stats, Resend email notifications, and Clerk webhooks",
+      "Row-level data isolation in Neon — each user only sees their own data",
     ],
     flows: [
       "User signs up/in via Clerk on web or mobile",
       "User uploads a lab PDF; Gemini processes and stores analysis in Neon",
-      "Dashboard shows stats; user reviews detailed interpretation on /lab-reports/[id]",
+      "User reviews detailed interpretation and suggested doctor questions on /lab-reports/[id]",
       "User can chat with AI about the report, add health notes, or share via token link",
       "Optional email notification sent via Resend when analysis completes",
     ],
@@ -85,7 +87,10 @@ export const projectDetails: Record<string, ProjectDetails> = {
     productionPractices: [
       "Contract-first REST API: Zod schemas → OpenAPI → Scalar at /api-docs",
       "Sentry error capture with OpenTelemetry spans and pino structured logging (correlation IDs)",
-      "Playwright smoke in CI: dashboard loads and SSE stream delivers live engine state",
+      "Upstash sliding-window rate limits per IP on read/write/SSE routes (429 + Retry-After)",
+      "Upstash Redis cache for latest StateSnapshot (~1s TTL) on GET /api/state",
+      "Playwright smoke in CI: dashboard loads and SSE stream delivers live engine state (DEMO_MODE=true)",
+      "CodeQL and Dependabot for npm (root + web/) and GitHub Actions",
     ],
     flows: [
       "Exchange WebSocket feeds normalize order books into OrderBookManager",
@@ -117,9 +122,10 @@ export const projectDetails: Record<string, ProjectDetails> = {
     ],
     productionPractices: [
       "Husky pre-commit with lint-staged on TypeScript sources",
-      "Jest unit and integration tests with CI coverage gate",
-      "Example GitHub Actions workflow runs npx env-ironmint validate --git on pull requests",
-      "Dependabot for npm dependency updates",
+      "Jest unit and integration tests with CI coverage gate (npm run test:ci)",
+      "GitHub Actions CI: lint, build, and test:ci on every push",
+      "Consumer template workflow at docs/examples/env-ironmint-pr.yml for downstream repos",
+      "Dependabot for weekly npm and GitHub Actions updates",
     ],
     flows: [
       "CLI scans the project directory for all .env* files",
@@ -143,11 +149,11 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Full-stack manga tracking and reading platform with tier-based limits (Basic vs Premium). Users discover manga, bookmark series, read chapters, and receive notifications, backed by Neon PostgreSQL with Prisma, Clerk auth, Stripe subscriptions, and Inngest background jobs.",
     features: [
       "Manga search, bookmarking, and reading with progress tracking",
-      "Tier system: Basic (50 bookmarks) vs Premium (unlimited) via Stripe",
+      "Tier system: Basic (50 bookmarks) vs Premium (unlimited) via Stripe checkout",
       "Manga reader with vertical/horizontal modes and auto mark-as-read",
       "Email notifications via Resend and in-app/browser notification system",
-      "Clerk auth with Google OAuth and user profile/preferences",
-      "Inngest background jobs for async processing",
+      "Clerk auth with Google OAuth, user profiles, and preference management",
+      "Inngest background jobs for async processing; Stripe customer portal for self-service",
     ],
     flows: [
       "User signs in via Clerk and lands on /dashboard",
@@ -236,7 +242,8 @@ export const projectDetails: Record<string, ProjectDetails> = {
     productionPractices: [
       "Husky monorepo pre-commit with lint-staged on TypeScript sources",
       "Zod validation for env config and fortnite-api ingest payloads",
-      "Playwright E2E in GitHub Actions on pull requests (production Next.js build + Chromium)",
+      "Playwright E2E in GitHub Actions: HTTP smokes, Sentry probe, and Clerk auth (@clerk/testing) on favorites API",
+      "Sentry captures cron ingest failures on /api/cron/ingest-fortnite",
     ],
     flows: [
       "Daily cron calls fortnite-api endpoints and upserts events into Neon",
@@ -262,22 +269,23 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Playwright-based CRT portal ingest for companies and Persona links",
       "Per-operator monitor patterns with automated or manual verification",
       "Encrypted CURP and phone profiles per user in Neon (Prisma)",
-      "Bulk monitor via SSE stream (up to 150 links, shared Chromium context)",
+      "Inngest fan-out for bulk monitor — durable per-link workers with retries and SSE progress polling",
       "Screenshot capture for manual review of verification results",
       "Admin role for sync, enable/disable companies, and ingest control",
     ],
     productionPractices: [
       "Husky pre-commit with lint-staged on TypeScript sources",
       "Zod-documented monitor and companies API with Scalar at /api-docs",
-      "Vitest API authorization tests for ingest and company-link routes",
-      "Playwright-driven CRT portal ingest and per-operator link verification",
+      "Vitest API authorization tests for ingest and company-link routes (5/5 in CI)",
+      "Inngest durable bulk jobs with Neon MonitorBulkJob rows; inline Playwright fallback without INNGEST_*",
+      "Sentry with PII scrubbing (CURP/credentials headers); CodeQL and Dependabot in CI",
     ],
     flows: [
       "User signs in via Clerk (Google or email) and sets up verification profile (CURP/phone)",
       "Admin runs ingest to scrape CRT portal companies and Persona links via Playwright",
       "User selects a link and triggers verification; Playwright runs operator-specific pattern",
       "Result, error, and optional screenshot are stored in Neon with monitor log history",
-      "Bulk monitor streams progress over SSE for batch verification of many links",
+      "Bulk monitor streams progress over SSE; Inngest fan-out runs each link in a durable worker with per-link retries",
     ],
     howToUse: [
       "Sign in at crt-lineas.vercel.app with Google or email",
@@ -287,7 +295,7 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Review status, errors, and screenshots; admins can sync new companies from CRT",
     ],
     architecture:
-      "Next.js App Router with Prisma on Neon PostgreSQL, Clerk for auth/roles, and Playwright for CRT scraping and link verification. Monitor patterns live in src/monitoring/patterns/; bulk jobs stream SSE from a shared headless Chromium context.",
+      "Next.js App Router with Prisma on Neon PostgreSQL, Clerk for auth/roles, Playwright for CRT scraping and link verification. Inngest fan-out handles bulk monitor jobs; monitor patterns live in src/monitoring/patterns/.",
   },
   sommaire: {
     overview:
@@ -360,8 +368,9 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Husky pre-commit with lint-staged on TypeScript sources",
       "Zod-validated OpenAPI contract with Scalar UI at /api-docs",
       "Sentry on web, Expo mobile, and LG TV surfaces with platform tags",
-      "Inngest watchlist refresh jobs and Upstash rate limiting on search",
-      "Supabase RLS isolation tests in CI; CodeQL; Playwright landing smoke on PRs",
+      "Inngest watchlist refresh jobs and Upstash rate limiting on search (20 req/min/user)",
+      "Supabase RLS isolation tests in CI (profiles, lists, likes, pairing_codes); CodeQL and Dependabot",
+      "Playwright landing smoke on PRs (npm run test:e2e)",
     ],
     flows: [
       "User signs in via Supabase (web cookies or mobile OAuth deep link)",
@@ -388,7 +397,7 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Sticky header with scroll-spy navigation and mobile hamburger menu",
       "Hero, About, Experience, Projects, and Contact sections",
       "TechBadge system with consistent icons and hash-based colors per technology",
-      "Featured projects grid driven by src/data/projects.ts",
+      "Project detail dialogs with overview, features, production practices, and architecture",
       "SEO metadata, Open Graph tags, and /api/og dynamic image route",
     ],
     flows: [

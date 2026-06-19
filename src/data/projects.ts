@@ -12,30 +12,32 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "health-erino",
-    title: "Health Erino",
-    description: "Medication management with AI voice assistant",
+    id: "watchily",
+    title: "Watchily",
+    description:
+      "JustWatch-style streaming finder across web, mobile, and LG TV",
     longDescription:
-      "Web and mobile app for managing medications with a Gemini-powered voice assistant. Admin panel syncs data from Google Sheets into Neon PostgreSQL via Clerk auth. Supports speech-to-text queries on mobile and text-to-speech responses on both platforms.",
-    image: "/projects/health-erino.jpg",
-    liveUrl: "https://health-erino.vercel.app/",
-    githubUrl: "https://github.com/mauricioabh/health-erino",
+      "Multi-surface streaming finder (Next.js web, Expo mobile, LG Web App TV) with Supabase auth, 21+ API routes, custom watchlists, and second-screen TV pairing. Watchmode API with availability fallback, Inngest watchlist refresh, and Upstash rate limiting on search.",
+    image: "/projects/watchily.jpg",
+    liveUrl: "https://watchily-ho.vercel.app/",
+    githubUrl: "https://github.com/mauricioabh/watchily-ho",
     technologies: [
       "Next.js",
       "Expo",
-      "Vercel AI SDK",
-      "Google Gemini",
-      "Clerk",
-      "Neon",
+      "Supabase",
+      "PostgreSQL",
+      "Watchmode API",
+      "LG Web App",
     ],
     featured: true,
   },
   {
     id: "labby-dabby",
     title: "Labby-dabby",
-    description: "AI-powered lab report analysis",
+    description:
+      "AI lab report analysis for patients — web and mobile",
     longDescription:
-      "Turborepo monorepo with Next.js web and Expo mobile apps for uploading and analyzing medical lab PDFs using Google Gemini. Drizzle ORM on Neon stores results; Clerk handles auth with webhooks; Uploadthing manages uploads and Resend sends notifications.",
+      "Turborepo monorepo with Next.js web and Expo mobile for uploading medical lab PDFs. Google Gemini extracts and interprets results in plain language with normal/abnormal/critical classification, contextual AI chat, health notes diary, and shareable read-only links.",
     image: "/projects/labby-dabby.jpg",
     liveUrl: "https://labby-dabby.vercel.app/",
     githubUrl: "https://github.com/mauricioabh/labby-dabby",
@@ -50,11 +52,52 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    id: "health-erino",
+    title: "Health Erino",
+    description:
+      "Medication management with Gemini voice assistant — web + mobile",
+    longDescription:
+      "Dual web and mobile app for medication management with a Gemini-powered voice assistant. Admin panel syncs data from Google Sheets into Neon PostgreSQL via Clerk auth; users query medications by voice on mobile (STT) or web with text-to-speech responses.",
+    image: "/projects/health-erino.jpg",
+    liveUrl: "https://health-erino.vercel.app/",
+    githubUrl: "https://github.com/mauricioabh/health-erino",
+    technologies: [
+      "Next.js",
+      "Expo",
+      "Vercel AI SDK",
+      "Google Gemini",
+      "Clerk",
+      "Neon",
+    ],
+    featured: true,
+  },
+  {
+    id: "crt-lineas",
+    title: "CRT Líneas",
+    description:
+      "CRT portal link monitoring with Playwright automation",
+    longDescription:
+      "Monitors Mexican CRT portal company and Persona-type links with semiannual Playwright verification. Clerk auth with admin/user roles, encrypted CURP/phone profiles in Neon, Inngest fan-out for bulk monitoring, and screenshot capture for manual review.",
+    image: "/projects/crt-lineas.jpg",
+    liveUrl: "https://crt-lineas.vercel.app/",
+    githubUrl: "https://github.com/mauricioabh/crt-lineas",
+    technologies: [
+      "Next.js",
+      "Prisma",
+      "Playwright",
+      "Clerk",
+      "Neon",
+      "TypeScript",
+    ],
+    featured: true,
+  },
+  {
     id: "arbpulse",
     title: "Arb Pulse",
-    description: "Real-time BTC cross-exchange arbitrage bot",
+    description:
+      "Real-time BTC cross-exchange arbitrage detection bot",
     longDescription:
-      "Streams BTC/USDT order books from Kraken, Bybit, OKX, and Binance over WebSocket, computing net profit with VWAP slippage and taker fees. Simulates trades in memory with no real funds and serves a React dashboard via REST and SSE.",
+      "Streams BTC/USDT order books from Kraken, Bybit, OKX, and Binance over WebSocket, computing net profit with VWAP slippage and taker fees. Simulates trades in memory with no real funds; React dashboard with REST, SSE live updates, and demo mode for presentations.",
     image: "/projects/arbpulse.jpg",
     liveUrl: "https://arb-pulse.onrender.com/",
     githubUrl: "https://github.com/mauricioabh/arbpulse",
@@ -69,23 +112,12 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "env-ironmint",
-    title: "Env-ironmint",
-    description: "CLI Tool (NPM)",
-    longDescription:
-      "Published NPM CLI for managing environment variables. Detects exposed secrets, validates configurations, syncs .env files across environments, and verifies .gitignore setup to prevent committing sensitive files.",
-    image: "/projects/env-ironmint.jpg",
-    liveUrl: "https://www.npmjs.com/package/env-ironmint",
-    githubUrl: "https://github.com/mauricioabh/env-ironmint",
-    technologies: ["TypeScript", "Jest", "NPM", "CLI"],
-    featured: true,
-  },
-  {
     id: "mangatrack",
     title: "MangaTrack",
-    description: "Manga tracking and reading platform",
+    description:
+      "Full-stack manga tracking SaaS with Stripe subscriptions",
     longDescription:
-      "Full-stack manga discovery, bookmarking, and reading app with tier-based limits (Basic vs Premium). Clerk auth, Stripe subscriptions, Resend email notifications, and Inngest background jobs on Neon PostgreSQL with Prisma.",
+      "Manga discovery, bookmarking, and reading platform with tier-based limits (Basic vs Premium). Clerk auth, Stripe subscriptions, Resend email notifications, Inngest background jobs, vertical/horizontal reader, and in-app notification system on Neon PostgreSQL with Prisma.",
     image: "/projects/mangatrack.jpg",
     liveUrl: "https://mangatrack-mauricioabh.vercel.app/",
     githubUrl: "https://github.com/mauricioabh/mangatrack",
@@ -100,11 +132,52 @@ export const projects: Project[] = [
     featured: false,
   },
   {
+    id: "sommaire",
+    title: "Sommaire",
+    description:
+      "AI PDF summarization with Stripe monetization",
+    longDescription:
+      "Upload PDFs via Uploadthing; text is extracted and summarized into engaging markdown by Google Gemini, stored in Neon Postgres. Clerk authentication with plan badges, upload limits by tier, and Stripe-powered paid upgrades for unlimited summaries.",
+    image: "/projects/sommaire.jpg",
+    liveUrl: "https://sommaire-mauricioabh.vercel.app/",
+    githubUrl: "https://github.com/mauricioabh/sommaire",
+    technologies: [
+      "Next.js",
+      "Google Gemini",
+      "Uploadthing",
+      "Stripe",
+      "Clerk",
+      "Neon",
+    ],
+    featured: false,
+  },
+  {
+    id: "livecountdown-fortnite",
+    title: "Live Countdown: Fortnite",
+    description:
+      "Fortnite events dashboard — Turborepo web + mobile",
+    longDescription:
+      "Turborepo monorepo with Next.js web and Expo mobile for Fortnite fans. Daily cron ingests seasons, news, and Battle Royale shop data from fortnite-api into Neon via Drizzle ORM, with Clerk auth, UTC-accurate countdowns, and color-coded urgency banners.",
+    image: "/projects/livecountdown-fortnite.jpg",
+    liveUrl: "https://livecountdown-fortnite.vercel.app/",
+    githubUrl: "https://github.com/mauricioabh/fortnite-live-countdown",
+    technologies: [
+      "Turborepo",
+      "Next.js",
+      "Expo",
+      "Drizzle",
+      "Clerk",
+      "Neon",
+    ],
+    featured: false,
+  },
+  {
     id: "beatstack",
     title: "BeatStack",
-    description: "Visual editor for Suno AI music prompts",
+    description:
+      "Visual node editor for Suno AI music prompts",
     longDescription:
-      "Node-based React Flow canvas to assemble Suno prompts from typed nodes (genre, mood, BPM, vocals, structure). Optional Gemini integration evaluates prompts and auto-configures from natural-language descriptions. PWA with localStorage presets and URL sharing.",
+      "React Flow canvas to assemble Suno prompts from typed nodes (genre, mood, BPM, vocals, structure). Optional Gemini integration evaluates prompts and auto-configures from natural-language descriptions. PWA with localStorage presets, URL sharing, and dark/light themes.",
     image: "/projects/beatstack.jpg",
     liveUrl: "https://beatstack-mauricioabh.onrender.com/",
     githubUrl: "https://github.com/mauricioabh/beatstack",
@@ -121,9 +194,10 @@ export const projects: Project[] = [
   {
     id: "te-kae",
     title: "te-kae",
-    description: "Aggregated hackathon listings viewer",
+    description:
+      "Multi-source hackathon aggregator with Neon persistence",
     longDescription:
-      "Aggregates active online hackathons from TAIKAI (GraphQL), Hack Club (public API), and MLH/lablab (ScraperAPI + HTML parsing). Manual refresh persists results in Neon Postgres with ingestion run tracking and last-update timestamps.",
+      "Aggregates active online hackathons from TAIKAI (GraphQL), Hack Club (public API), and MLH/lablab (ScraperAPI + HTML parsing). Manual refresh persists results in Neon Postgres with ingestion run tracking, Zod-validated API, and last-update timestamps in the header.",
     image: "/projects/te-kae.jpg",
     liveUrl: "https://te-kae.vercel.app/",
     githubUrl: "https://github.com/mauricioabh/te-kae",
@@ -137,68 +211,12 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    id: "livecountdown-fortnite",
-    title: "Live Countdown: Fortnite",
-    description: "Fortnite events dashboard (web + mobile)",
-    longDescription:
-      "Turborepo monorepo with Next.js web and Expo mobile apps for Fortnite fans. Daily cron ingests seasons, news, and item shop data from fortnite-api into Neon via Drizzle ORM, with Clerk auth and countdown UI.",
-    image: "/projects/livecountdown-fortnite.jpg",
-    liveUrl: "https://livecountdown-fortnite.vercel.app/",
-    githubUrl: "https://github.com/mauricioabh/fortnite-live-countdown",
-    technologies: [
-      "Turborepo",
-      "Next.js",
-      "Expo",
-      "Drizzle",
-      "Clerk",
-      "Neon",
-    ],
-    featured: false,
-  },
-  {
-    id: "crt-lineas",
-    title: "CRT Líneas",
-    description: "CRT portal link monitoring automation",
-    longDescription:
-      "Monitors company and Persona-type links from the Mexican CRT portal with semiannual Playwright verification. Clerk auth with admin/user roles, encrypted CURP/phone profiles in Neon, bulk SSE monitoring, and screenshot capture for manual review.",
-    image: "/projects/crt-lineas.jpg",
-    liveUrl: "https://crt-lineas.vercel.app/",
-    githubUrl: "https://github.com/mauricioabh/crt-lineas",
-    technologies: [
-      "Next.js",
-      "Prisma",
-      "Playwright",
-      "Clerk",
-      "Neon",
-      "TypeScript",
-    ],
-    featured: false,
-  },
-  {
-    id: "sommaire",
-    title: "Sommaire",
-    description: "AI-powered PDF summarization",
-    longDescription:
-      "Upload PDFs via Uploadthing; the app extracts text and generates engaging markdown summaries with Google Gemini, stored in Neon Postgres. Clerk authentication with plan badges and Stripe-powered paid tiers.",
-    image: "/projects/sommaire.jpg",
-    liveUrl: "https://sommaire-mauricioabh.vercel.app/",
-    githubUrl: "https://github.com/mauricioabh/sommaire",
-    technologies: [
-      "Next.js",
-      "Google Gemini",
-      "Uploadthing",
-      "Stripe",
-      "Clerk",
-      "Neon",
-    ],
-    featured: false,
-  },
-  {
     id: "vibe-store",
     title: "Vibe Store",
-    description: "Personal app distribution hub",
+    description:
+      "Personal Android app distribution hub with admin approval",
     longDescription:
-      "Next.js landing with Clerk (Google OAuth) and an admin approval workflow for authorized users in Neon. Dashboard shows a QR code for the Vibe Store APK; the Expo mobile app lists personal projects with install, open, and uninstall actions on Android.",
+      "Next.js landing with Clerk (Google OAuth) and an admin approval workflow for authorized users in Neon. Dashboard shows a QR code for the Vibe Store APK; the Expo mobile app lists personal projects (Watchily, Health Erino, etc.) with install, open, and uninstall on Android.",
     image: "/projects/vibe-store.jpg",
     liveUrl: "https://vibestore-mauricioabh.vercel.app/",
     githubUrl: "https://github.com/mauricioabh/vibe-store",
@@ -213,30 +231,25 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    id: "watchily",
-    title: "Watchily",
-    description: "JustWatch-style streaming finder",
+    id: "env-ironmint",
+    title: "Env-ironmint",
+    description:
+      "Published NPM CLI for .env validation and security",
     longDescription:
-      "Find where to watch movies and series across streaming platforms. Web (Next.js), mobile (Expo), and TV (LG Web App) with Supabase auth and PostgreSQL. Multi-platform search, custom lists, and TV login via pairing codes (second-screen).",
-    image: "/projects/watchily.jpg",
-    liveUrl: "https://watchily-ho.vercel.app/",
-    githubUrl: "https://github.com/mauricioabh/watchily-ho",
-    technologies: [
-      "Next.js",
-      "Expo",
-      "Supabase",
-      "PostgreSQL",
-      "Watchmode API",
-      "LG Web App",
-    ],
-    featured: true,
+      "Published NPM CLI for managing environment variables across projects. Detects exposed secrets, validates against .env.example, syncs .env files across environments, verifies .gitignore setup, and ships with Jest CI coverage and a GitHub Actions consumer template.",
+    image: "/projects/env-ironmint.jpg",
+    liveUrl: "https://www.npmjs.com/package/env-ironmint",
+    githubUrl: "https://github.com/mauricioabh/env-ironmint",
+    technologies: ["TypeScript", "Jest", "NPM", "CLI"],
+    featured: false,
   },
   {
     id: "portfolio",
     title: "Portfolio Website",
-    description: "Modern portfolio with dark theme and animations",
+    description:
+      "This portfolio — dark theme, animations, dynamic OG images",
     longDescription:
-      "Responsive portfolio showcasing professional experience and projects. Dark theme, Framer Motion animations, tech stack badges, and optimized performance for recruiters and clients. Deployed on Vercel with dynamic OG image generation.",
+      "Responsive portfolio showcasing professional experience and projects for recruiters. Dark theme, Framer Motion animations, TechBadge system, project detail dialogs with production practices, and dynamic OG image generation — deployed on Vercel.",
     image: "/projects/portfolio.jpg",
     liveUrl: "https://portfolio-mauricioabh.vercel.app/",
     githubUrl: "https://github.com/mauricioabh/portfolio",
