@@ -163,7 +163,7 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Premium users upgrade via Stripe checkout; tier unlocks higher bookmark limits",
     ],
     howToUse: [
-      "Sign up at mangatrack-mauricioabh.vercel.app with Google or email",
+      "Sign up at mangatrack-git-dev-mauricioabhs-projects.vercel.app with Google or email",
       "Search for manga and bookmark series from your dashboard",
       "Open a chapter in the reader and track your progress automatically",
       "Enable email or browser notifications for new chapter alerts",

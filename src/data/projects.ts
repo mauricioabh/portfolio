@@ -119,7 +119,7 @@ export const projects: Project[] = [
     longDescription:
       "Manga discovery, bookmarking, and reading platform with tier-based limits (Basic vs Premium). Clerk auth, Stripe subscriptions, Resend email notifications, Inngest background jobs, vertical/horizontal reader, and in-app notification system on Neon PostgreSQL with Prisma.",
     image: "/projects/mangatrack.jpg",
-    liveUrl: "https://mangatrack-mauricioabh.vercel.app/",
+    liveUrl: "https://mangatrack-git-dev-mauricioabhs-projects.vercel.app/",
     githubUrl: "https://github.com/mauricioabh/mangatrack",
     technologies: [
       "Next.js",
