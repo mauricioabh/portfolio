@@ -4,8 +4,9 @@ Master plan for production practices across the six CV apps. **Linear** is the e
 
 **Linear project:** [Production Skills — CV Impact Stack](https://linear.app/wayool/project/production-skills-cv-impact-stack-9837e285d1f6) (team **Wayool**, 25 issues WAY-5–WAY-32)  
 **Issues reference:** [linear-issues.md](./linear-issues.md)  
-**Local QA checklist:** [production-skills-qa.md](./production-skills-qa.md) — M1 ✅ M5 ✅ · M4 next  
-**Branch policy:** [repo-branches.md](./repo-branches.md) — `dev` if present, else `main` / `master`; no new branches; no push until local QA
+**Local QA checklist:** [production-skills-qa.md](./production-skills-qa.md) — M0–M5 ✅  
+**Branch policy:** [repo-branches.md](./repo-branches.md) — `dev` if present, else `main` / `master`; no new branches; no push until local QA  
+**Design System plan:** [design-system-storybook-plan.md](./design-system-storybook-plan.md) — Storybook, tokens, shadcn (3–5 weeks with Cursor + AI)
 
 ---
 
@@ -129,7 +130,7 @@ Update `[ ]` → `[x]` when done. **README + `.env.example` must be updated in t
 
 ### Portfolio / CV (M5)
 - [x] Dependabot (npm + GitHub Actions) (M4)
-- [x] Update `src/data/project-details.ts` bullets (M5 — local QA pending)
+- [x] Update `src/data/project-details.ts` bullets (M5)
 - [ ] Update external CV text
 
 ### Portfolio docs (M3)

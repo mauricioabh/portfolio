@@ -86,7 +86,7 @@ export const projectDetails: Record<string, ProjectDetails> = {
     ],
     productionPractices: [
       "Contract-first REST API: Zod schemas → OpenAPI → Scalar at /api-docs",
-      "Sentry error capture with OpenTelemetry spans and pino structured logging (correlation IDs)",
+      "Sentry error capture with OpenTelemetry spans (orderbook, arbitrage, SSE) and pino structured logging with correlation IDs",
       "Upstash sliding-window rate limits per IP on read/write/SSE routes (429 + Retry-After)",
       "Upstash Redis cache for latest StateSnapshot (~1s TTL) on GET /api/state",
       "Playwright smoke in CI: dashboard loads and SSE stream delivers live engine state (DEMO_MODE=true)",
@@ -242,8 +242,9 @@ export const projectDetails: Record<string, ProjectDetails> = {
     productionPractices: [
       "Husky monorepo pre-commit with lint-staged on TypeScript sources",
       "Zod validation for env config and fortnite-api ingest payloads",
-      "Playwright E2E in GitHub Actions: HTTP smokes, Sentry probe, and Clerk auth (@clerk/testing) on favorites API",
+      "Playwright E2E in GitHub Actions: HTTP smokes, Sentry probe, and Clerk auth (6 tests — guest 401, signed-in favorites 200)",
       "Sentry captures cron ingest failures on /api/cron/ingest-fortnite",
+      "Dependabot for npm and GitHub Actions across the Turborepo",
     ],
     flows: [
       "Daily cron calls fortnite-api endpoints and upserts events into Neon",
@@ -369,8 +370,8 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Zod-validated OpenAPI contract with Scalar UI at /api-docs",
       "Sentry on web, Expo mobile, and LG TV surfaces with platform tags",
       "Inngest watchlist refresh jobs and Upstash rate limiting on search (20 req/min/user)",
-      "Supabase RLS isolation tests in CI (profiles, lists, likes, pairing_codes); CodeQL and Dependabot",
-      "Playwright landing smoke on PRs (npm run test:e2e)",
+      "Supabase RLS isolation: 11 Vitest cases in GitHub Actions CI (profiles, lists, likes, pairing_codes)",
+      "Playwright landing smoke on PRs; CodeQL and Dependabot in GitHub Actions",
     ],
     flows: [
       "User signs in via Supabase (web cookies or mobile OAuth deep link)",

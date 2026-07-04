@@ -26,9 +26,9 @@ Checklist para validar **M0–M5** antes de push/PR. Commits ya hechos en local;
 |-----------|---------|-----------|
 | **M0** Foundation | Husky, Sentry org, convenciones | ✅ **Revisado** |
 | **M1** API contracts | Zod + Scalar `/api-docs` | ✅ **Revisado** |
-| **M2** Observability | Sentry, Pino, OTel, Langfuse | 🔄 En curso (Sentry + Langfuse OK; Pino/OTel pendiente) |
+| **M2** Observability | Sentry, Pino, OTel, Langfuse | ✅ **Revisado** (arbpulse Pino/OTel/Sentry MCP 2026-07-02; Langfuse OK) |
 | **M3** Async | Inngest, Upstash | ✅ **Revisado** (local dev; Inngest Cloud prod pendiente) |
-| **M4** Security | RLS, auth tests, CodeQL, Dependabot | ⬜ **Siguiente** |
+| **M4** Security | RLS, auth tests, CodeQL, Dependabot | ✅ **Revisado** |
 | **M5** CI + CV | Playwright, env-ironmint, bullets | ✅ **Revisado** |
 
 ---
@@ -68,7 +68,7 @@ Haz los pasos en este orden. Los de arriba no dependen de secrets externos; los 
 
 | # | Qué | Repo | Comando / requisito | Estado |
 |---|-----|------|---------------------|--------|
-| 13 | RLS isolation | **watchily-ho** | **CI:** push/PR → check **RLS Tests** (`.github/workflows/rls.yml`). Local opcional: Docker + `supabase start` → `npm run test:rls` | 🔄 M4 (validar en CI; local omitido — Docker) |
+| 13 | RLS isolation | **watchily-ho** | **CI:** push/PR → check **RLS Tests** (`.github/workflows/rls.yml`). Local opcional: Docker + `supabase start` → `npm run test:rls` | ✅ M4 (11/11 CI run 28619374812; local omitido — Docker) |
 | 14 | Fortnite build fix | **fortnite** | Si `next build` se cuelga: `outputFileTracingRoot` ya en `apps/web/next.config.ts` | ✅ (build OK en sesión) |
 
 ### Nivel 5 — Secrets obligatorios 🔑
@@ -84,9 +84,9 @@ Haz los pasos en este orden. Los de arriba no dependen de secrets externos; los 
 
 | # | Qué | Acción | Estado |
 |---|-----|--------|--------|
-| 19 | Pino / OTel | **arbpulse** — logs estructurados + trace en Sentry | ⬜ M2 |
+| 19 | Pino / OTel | **arbpulse** — logs estructurados + trace en Sentry | ✅ M2 |
 | 20 | Inngest doc | **portfolio** — `docs/inngest-pattern.md` legible | ✅ M3 |
-| 21 | CV bullets | **portfolio** — `src/data/project-details.ts` + PDF CV | ⬜ M5 |
+| 21 | CV bullets | **portfolio** — `src/data/project-details.ts` + PDF CV | ✅ M5 |
 | 22 | Neon preview branches | health / fortnite — doc en README | ⏭️ opcional M4 |
 
 ---
@@ -136,14 +136,14 @@ npm run dev
 
 ---
 
-### M2 — Observability 🔄 En curso
+### M2 — Observability ✅ Revisado
 
 | Item | Repo | Cómo validar | QA |
 |------|------|--------------|-----|
 | Sentry + probe | watchily, arbpulse, crt, health, fortnite | `npm run test:observability` o script portfolio | ✅ (4/5 script 2026-06-12; fortnite: build+start en Windows) |
 | Sentry ingest | org mauricio-barragan | Issues WATCHILY-HO-1, ARBPULSE-1, etc. ignorados tras probe | ✅ (MCP 2026-06-12 — 5/5 probes ignored) |
-| Pino + correlation | **arbpulse** | Logs JSON en consola; `X-Request-Id` en respuestas | ⬜ |
-| OpenTelemetry | **arbpulse** | Traces visibles en Sentry (si configurado) | ⬜ |
+| Pino + correlation | **arbpulse** | Logs JSON en consola; `X-Request-Id` en respuestas | ✅ (REST/SSE 2026-07-02) |
+| OpenTelemetry | **arbpulse** | Traces visibles en Sentry (`orderbook.process`, `arbitrage.evaluate`, `sse.broadcast`) | ✅ (MCP 2026-07-02 — spans en `development`, 24h) |
 | Langfuse | **health-erino** | `/admin` chat → trace `voice-chat-session` en us.cloud.langfuse.com 🔑 | ✅ |
 
 **Linear:** WAY-11, WAY-12, WAY-13, WAY-14, WAY-16, WAY-17
@@ -165,15 +165,15 @@ npm run dev
 
 ---
 
-### M4 — Security + data ⬜ Siguiente (continuar aquí)
+### M4 — Security + data ✅ Revisado
 
 | Item | Repo | Cómo validar | QA |
 |------|------|--------------|-----|
-| RLS integration tests | **watchily-ho** | GitHub Actions **RLS Tests** en push/PR a `main` (≥11 casos Vitest) | 🔄 (CI; local omitido) |
+| RLS integration tests | **watchily-ho** | GitHub Actions **RLS Tests** en push/PR a `main` (11 casos Vitest) | ✅ (CI run [28619374812](https://github.com/mauricioabh/watchily-ho/actions/runs/28619374812)) |
 | API auth tests | **crt-lineas** | `npm run test:auth` | ✅ (5/5) |
 | API auth tests | **health-erino** | `cd web && npm run test:auth` | ✅ (7/7) |
 | CodeQL | watchily, health, arbpulse | Workflow en `.github/workflows/` | ✅ |
-| Dependabot | 6 repos + portfolio | `.github/dependabot.yml` | ⬜ |
+| Dependabot | 6 repos + portfolio | `.github/dependabot.yml` en rama por defecto | ✅ (7/7 verificado 2026-07-02) |
 | Neon branching | health / fortnite | Doc en README (opcional) | ⏭️ |
 
 **Comandos M4 (orden sugerido):**
@@ -204,8 +204,8 @@ npm run test:auth
 | Playwright E2E | **fortnite** | build + `npm run start` + `npm run test:e2e` (6 tests, Clerk auth) | ✅ |
 | env-ironmint CI | **env-ironmint** | `npm run test:ci` — 15 tests (validator + sync + CLI) | ✅ |
 | Fortnite E2E doc | **fortnite** | README Production practices | ✅ |
-| CV bullets | **portfolio** | `src/data/project-details.ts` | ⬜ |
-| Dependabot portfolio | **portfolio** | `.github/dependabot.yml` | ⬜ |
+| CV bullets | **portfolio** | `src/data/project-details.ts` — productionPractices for 6 CV apps | ✅ |
+| Dependabot portfolio | **portfolio** | `.github/dependabot.yml` | ✅ |
 
 **Fortnite E2E (recordatorio):**
 
@@ -235,7 +235,7 @@ npm run test:ci
 
 ## Después de QA
 
-1. Marcar issues en Linear **Done** (M1, M5; M4 auth + CodeQL revisados; RLS/Dependabot pendientes).
+1. Marcar issues en Linear **Done** (M1, M4, M5; auth + CodeQL + RLS + Dependabot revisados).
 2. Push por repo según [repo-branches.md](./repo-branches.md) (`dev` o `main`).
 3. Abrir PR; esperar CI de GitHub.
 4. Actualizar checklist en [production-skills-roadmap.md](./production-skills-roadmap.md) (`local QA pending` → done).
@@ -265,4 +265,17 @@ npm run test:ci
 
 ---
 
-*Última actualización: 2026-06-17 (Clerk E2E fortnite + push Production Skills)*
+## Notas de sesión (2026-07-02)
+
+- **M2 arbpulse Pino + correlation:** ✅ — logs JSON en consola; `X-Request-Id` en REST (`/api/state`) y SSE (`/api/events`); correlationId en pipeline demo.
+- **M2 arbpulse Sentry probe (local):** ✅ — server `:8080` UP; `GET /api/debug/sentry` → 200; `npm run test:observability` 1/1.
+- **M2 arbpulse Sentry ingest (MCP, workspace arbpulse):** ✅ — [ARBPULSE-1](https://mauricio-barragan.sentry.io/issues/ARBPULSE-1) `Error: Arb Pulse Sentry test error`, status **ignored**, 15 eventos totales, last seen 2026-07-02; stack trace en `routes.ts:48` (`GET /api/debug/sentry`), environment `development`.
+- **M2 arbpulse OTel traces (MCP):** ✅ — spans en Sentry Performance (24h, `development`): `orderbook.process` (38 576), `arbitrage.evaluate` (38 585), `sse.broadcast` (1).
+- **Nota:** Sentry MCP solo se carga cuando el workspace raíz es el repo del proyecto (p. ej. `arbpulse`); en `portfolio` el plugin aparece en verde pero no se conecta al agente.
+- **M4 RLS (watchily-ho):** CI **RLS Tests** verde — run [28619374812](https://github.com/mauricioabh/watchily-ho/actions/runs/28619374812), 11/11 Vitest. Fixes: `set -a` + mint JWT keys (`rls-export-keys.mjs`), migración `postgrest_grants`, seed vía `pg`, deny writes con `.select()` + `[]`.
+- **M4 Dependabot:** `.github/dependabot.yml` en rama por defecto de 7 repos (6 CV + portfolio); `arbpulse` cherry-pick a `main` (`c155790`).
+- **M5 CV bullets:** `productionPractices` actualizados en `project-details.ts` para watchily, arbpulse, crt-lineas, health-erino, fortnite, env-ironmint (RLS 11/11, OTel spans, Clerk E2E 6 tests, etc.). PDF/LinkedIn externo pendiente.
+
+---
+
+*Última actualización: 2026-07-03 (M5 CV bullets en portfolio; M4 completo)*
