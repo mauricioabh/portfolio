@@ -456,4 +456,7 @@ Marcar `[x]` al completar cada fase por repo.
 | 2026-07-06 | F2+F3+F7 portfolio: `lib/seo/`, robots, sitemap, JSON-LD, FAQ, preview guard | `npm run build` ✅ · rutas `/robots.txt`, `/sitemap.xml` |
 | 2026-07-06 | F2+F3+F7 wayool: mismo paquete + Organization JSON-LD | `npm run build` ✅ |
 | 2026-07-06 | F4+F5 portfolio: sección FAQ + README AEO | Manual |
-| ⏳ | Producción robots/sitemap 200 | Pendiente deploy |
+| 2026-07-06 | PR #8 merged + Vercel deploy READY | portfolio-mauricioabh.vercel.app |
+| 2026-07-06 | Bugfix PR #9: `master` branch treated as preview → fixed | robots Allow + AI bots ✅ |
+| 2026-07-06 | wayool PR #1 + #2 merged, deploy READY | www.wayool.com/robots.txt Allow ✅ · sitemap 200 ✅ |
+| ⏳ | wayool: set `NEXT_PUBLIC_SITE_URL=https://wayool.com` in Vercel | sitemap still uses deployment URL |
