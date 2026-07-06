@@ -19,13 +19,13 @@ export function getSiteUrl(): string {
   return "http://localhost:3000";
 }
 
-export const PRODUCTION_GIT_BRANCH = "main";
+const PRODUCTION_GIT_BRANCHES = new Set(["main", "master"]);
 
 export function isPreviewDeployment(): boolean {
   if (process.env.VERCEL_ENV === "preview") return true;
 
   const branch = process.env.VERCEL_GIT_COMMIT_REF?.trim();
-  if (branch && branch !== PRODUCTION_GIT_BRANCH) return true;
+  if (branch && !PRODUCTION_GIT_BRANCHES.has(branch)) return true;
 
   return false;
 }
