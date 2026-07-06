@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Geist,
   Geist_Mono,
@@ -7,7 +6,14 @@ import {
   Space_Grotesk,
 } from "next/font/google";
 import "./globals.css";
-import { getSEOInfo } from "@/config/personal";
+import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  faqPageJsonLd,
+  personJsonLd,
+  profilePageJsonLd,
+  webSiteJsonLd,
+} from "@/lib/seo/json-ld";
+import { rootLayoutMetadata } from "@/lib/seo/metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,56 +42,7 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-const seoInfo = getSEOInfo();
-
-export const metadata: Metadata = {
-  title: seoInfo.title,
-  description: seoInfo.description,
-  keywords: [
-    "Full Stack Developer",
-    "React",
-    "Next.js",
-    "JavaScript",
-    "Node.js",
-    "SAP Fiori",
-    "Web Development",
-  ],
-  authors: [{ name: seoInfo.title.split(" — ")[0] }],
-  creator: seoInfo.title.split(" — ")[0],
-  openGraph: {
-    type: "website",
-    locale: seoInfo.locale,
-    url: seoInfo.url,
-    title: seoInfo.title,
-    description: seoInfo.description,
-    siteName: seoInfo.siteName,
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: seoInfo.title,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: seoInfo.title,
-    description: seoInfo.description,
-    images: ["/og-image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+export const metadata = rootLayoutMetadata();
 
 export default function RootLayout({
   children,
@@ -97,6 +54,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${poppins.variable} ${spaceGrotesk.variable} antialiased`}
       >
+        <JsonLd
+          data={[
+            personJsonLd(),
+            webSiteJsonLd(),
+            profilePageJsonLd(),
+            faqPageJsonLd(),
+          ]}
+        />
         {children}
       </body>
     </html>

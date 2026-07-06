@@ -34,7 +34,7 @@ const Header = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Scroll spy logic - simplified and more reliable
-      const sections = ["about", "experience", "projects", "contact"];
+      const sections = ["about", "experience", "projects", "contact", "faq"];
       const scrollPosition = window.scrollY + 150;
 
       let currentSection = "";
@@ -123,6 +123,7 @@ const Header = () => {
     { name: "Experience", href: "#experience", color: "blue" },
     { name: "Projects", href: "#projects", color: "indigo" },
     { name: "Contact", href: "#contact", color: "purple" },
+    { name: "FAQ", href: "#faq", color: "pink" },
   ];
 
   const scrollToSection = (href: string) => {

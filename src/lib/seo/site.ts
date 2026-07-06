@@ -1,0 +1,37 @@
+import { personalInfo } from "@/config/personal";
+
+export const SITE_NAME = personalInfo.site.name;
+
+export const DEFAULT_DESCRIPTION = personalInfo.site.description;
+
+/** Static OG image in public/ (also served by /api/og for dynamic generation). */
+export const DEFAULT_OG_IMAGE_PATH = "/og-image.png";
+
+export function getSiteUrl(): string {
+  const configured =
+    process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
+    process.env.NEXT_PUBLIC_PORTFOLIO_URL?.trim();
+  if (configured) return configured.replace(/\/$/, "");
+
+  const vercel = process.env.VERCEL_URL?.trim();
+  if (vercel) return `https://${vercel.replace(/\/$/, "")}`;
+
+  return "http://localhost:3000";
+}
+
+export const PRODUCTION_GIT_BRANCH = "main";
+
+export function isPreviewDeployment(): boolean {
+  if (process.env.VERCEL_ENV === "preview") return true;
+
+  const branch = process.env.VERCEL_GIT_COMMIT_REF?.trim();
+  if (branch && branch !== PRODUCTION_GIT_BRANCH) return true;
+
+  return false;
+}
+
+/** Block indexing on preview deployments unless explicitly overridden. */
+export function allowSearchIndexing(): boolean {
+  if (process.env.OMNI_ALLOW_PREVIEW_INDEX === "true") return true;
+  return !isPreviewDeployment();
+}
