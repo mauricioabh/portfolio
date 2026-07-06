@@ -2,6 +2,24 @@
 
 **Created in Linear:** [Production Skills — CV Impact Stack](https://linear.app/wayool/project/production-skills-cv-impact-stack-9837e285d1f6) · team **Wayool** · issues **WAY-5** through **WAY-32**
 
+**OpenSRC adoption:** [OpenSRC — CV Adoption](https://linear.app/wayool/project/opensrc-cv-adoption-689d8bc9fa3c) · issues **WAY-47** through **WAY-54** · plan `docs/opensrc-adoption-plan.md`
+
+**SEO / AEO:** [SEO / AEO — Portfolio Stack](https://linear.app/wayool/project/seo-aeo-portfolio-stack-b94365bf475d) · issues **WAY-56** through **WAY-63** · plan `docs/seo-aeo-roadmap.md`
+
+| Milestone | Issues |
+|-----------|--------|
+| M0 Foundation — lib/seo template | WAY-56 ✅ |
+| M1 P0 — portfolio + wayool | WAY-57 ✅, WAY-58 ✅ (deploy verify ⏳) |
+| M2 Preview noindex rollout | WAY-59, WAY-63 |
+| M3 Content + README AEO | WAY-60, WAY-61 |
+| M4 JSON-LD + watchily dynamic metadata | WAY-62 |
+
+| Milestone | Issues |
+|-----------|--------|
+| M0 Prerequisites | WAY-47 |
+| M1 Fetch by project | WAY-48 (crt-lineas), WAY-49 (mangatrack), WAY-50 (health-erino), WAY-53 (watchily-ho), WAY-51 (labby-dabby), WAY-52 (velyd) |
+| M2 Maintenance | WAY-54 ✅ (retry failed fetches), WAY-55 (ratelimit blocked upstream) |
+
 | Milestone | Issues |
 |-----------|--------|
 | M0 Foundation | WAY-8, WAY-5, WAY-7 |

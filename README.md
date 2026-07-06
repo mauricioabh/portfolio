@@ -2,6 +2,48 @@
 
 A modern, dark-themed portfolio website built with Next.js, React, TailwindCSS, shadcn/ui, Framer Motion, and TypeScript. Features a comprehensive tech stack showcase with consistent technology badges, smooth animations, and responsive design.
 
+## What is this portfolio?
+
+Personal site for **Mauricio Barragán**, a full-stack developer showcasing shipped products (BeatStack, Watchily, Mangatrack, and more), work experience, and contact options for recruiters and collaborators.
+
+**Live:** https://portfolio-mauricioabh.vercel.app (set canonical URL via `NEXT_PUBLIC_SITE_URL`)
+
+## Who is it for?
+
+Recruiters, hiring managers, and potential collaborators evaluating Mauricio's production web work — Next.js apps on Vercel with observability, API contracts, and real deployed demos.
+
+## FAQ
+
+### What stack does Mauricio use?
+Next.js, React, TypeScript, Tailwind CSS, Node.js, PostgreSQL/Prisma, Clerk or Supabase auth, and Vercel. Enterprise experience includes SAP Fiori integrations.
+
+### What are the featured projects?
+BeatStack (Suno prompt editor), Watchily (streaming search), Mangatrack, Sommaire, Labby Dabby, CRT Líneas, and this portfolio. Each card links to live demos where available.
+
+### How do I get in touch?
+Contact form on the homepage, email mauricioabh@gmail.com, or LinkedIn at [linkedin.com/in/mauricioabh](https://www.linkedin.com/in/mauricioabh/).
+
+## Production practices
+
+### SEO / AEO (`lib/seo/`)
+
+Reusable Next.js SEO module (copied from [beatstack](https://github.com/mauricioabh/beatstack) reference):
+
+| File | Purpose |
+|------|---------|
+| `src/lib/seo/site.ts` | `getSiteUrl()`, `isPreviewDeployment()`, `allowSearchIndexing()` |
+| `src/lib/seo/metadata.ts` | `rootLayoutMetadata()`, `buildPageMetadata()` |
+| `src/lib/seo/routes.ts` | `PUBLIC_SITEMAP_PATHS` for sitemap |
+| `src/lib/seo/json-ld.ts` | Person, WebSite, ProfilePage, FAQPage schema |
+| `src/app/robots.ts` | Crawler rules + AI bots (GPTBot, ClaudeBot, etc.) |
+| `src/app/sitemap.ts` | Public routes sitemap |
+
+**Env vars:** `NEXT_PUBLIC_SITE_URL` (canonical), `OMNI_ALLOW_PREVIEW_INDEX` (optional override for preview indexing).
+
+Preview deploys on Vercel return `noindex` and `robots.txt` `Disallow: /` unless overridden.
+
+**Master plan:** [docs/seo-aeo-roadmap.md](./docs/seo-aeo-roadmap.md)
+
 ## Engineering roadmap
 
 Cross-project production skills plan (Sentry, Zod+Scalar, Inngest, Langfuse, etc.) for CV apps:
