@@ -1,11 +1,41 @@
-# SEO / AEO — Roadmap (22 repos)
+# SEO / AEO — Roadmap (8 repos CV)
 
-Master plan for search visibility and answer-engine discoverability across `C:\Projects`.  
-**Complements:** [production-skills-roadmap.md](./production-skills-roadmap.md) (CV stack) — SEO/AEO is a parallel track for **public-facing** web apps.
+Plan de visibilidad en buscadores y answer engines **solo para los proyectos destacados del CV**.  
+**Complements:** [production-skills-roadmap.md](./production-skills-roadmap.md) — track paralelo para apps web desplegadas.
 
-**Last audit:** 2026-07-06 · F1–F2 ejecutadas en portfolio + wayool (código verificado con `npm run build`). Producción pendiente de deploy.
+**Alcance (2026-07-06):** portfolio, wayool, beatstack, watchily-ho, mangatrack, fortnite-live-countdown, crt-lineas, health-erino.  
+Todo lo demás en `C:\Projects` queda **fuera de alcance** hasta decisión explícita.
+
+**Last audit:** 2026-07-06 · P0 (portfolio + wayool) en producción verificado vía Vercel MCP.
 
 **Linear:** [SEO / AEO — Portfolio Stack](https://linear.app/wayool/project/seo-aeo-portfolio-stack-b94365bf475d) · issues **WAY-56** through **WAY-63**
+
+---
+
+## Qué aplica por repo (regla de oro)
+
+No todos los CV apps necesitan el mismo paquete. **Privacidad > visibilidad** en apps con auth y datos sensibles.
+
+| Repo | Objetivo SEO/AEO | Fases que aplican | No hacer |
+|------|------------------|-------------------|----------|
+| **portfolio** | Vitrina indexable, JSON-LD Person, FAQ recruiters | F1–F5, F7 · F9 opcional | — |
+| **wayool** | Studio indexable, Organization schema | F1–F3, F5, F7 | FAQ pública (no es producto único) |
+| **beatstack** | Referencia `lib/seo/` + producto público (Render) | F1, F4 (`/help`), F5, F7 · F9 opcional | Retrofit innecesario (ya tiene paquete) |
+| **watchily-ho** | Long-tail “dónde ver X”; landing indexable | F3, F5, F6, F7 · F8 en rutas auth | FAQ inventada sin contenido real |
+| **mangatrack** | Landing/login indexable; app privada | F3, F5, F8 | JSON-LD/FAQ en dashboard |
+| **fortnite-live-countdown** | Páginas públicas de countdown; app auth noindex | F3, F5, F8 (parcial) | AEO en zonas con cuenta |
+| **crt-lineas** | **Solo privacidad** — datos de transporte + PII | **F3 + F8 únicamente** | SEO, JSON-LD, FAQ, README AEO |
+| **health-erino** | **Solo privacidad** — datos de salud | **F3 + F8 únicamente** | SEO, JSON-LD, FAQ, README AEO |
+
+### Progreso resumido
+
+| Estado | Repos |
+|--------|-------|
+| ✅ Hecho (producción verificada) | portfolio, wayool |
+| ✅ Referencia ya completa | beatstack (`lib/seo/` en Render) |
+| 🔲 Pendiente SEO/AEO real | watchily-ho, mangatrack, fortnite-live-countdown |
+| 🔒 Pendiente solo privacidad | crt-lineas, health-erino |
+| ⏳ Config menor | wayool: `NEXT_PUBLIC_SITE_URL=https://wayool.com` en Vercel |
 
 ---
 
@@ -35,45 +65,26 @@ Master plan for search visibility and answer-engine discoverability across `C:\P
 
 ---
 
-## Inventario de repos (22)
+## Inventario CV (8 repos)
 
-### Web apps Next.js / deploy Vercel (SEO relevante)
+| Repo | Deploy | Auth | Tier | Qué buscamos |
+|------|--------|------|------|--------------|
+| **portfolio** | Vercel | No | **P0** | Indexación completa + FAQ recruiters |
+| **wayool** | Vercel | No | **P0** | Indexación studio + Organization |
+| **beatstack** | Render | No | **P0 ref** | Plantilla `lib/seo/` + `/help` AEO |
+| **watchily-ho** | Vercel | Clerk | **P1** | Long-tail streaming + preview guard |
+| **mangatrack** | Vercel | Clerk | **P2** | Landing indexable; app noindex |
+| **fortnite-live-countdown** | Vercel | Clerk | **P2** | Countdowns públicos; cuenta noindex |
+| **crt-lineas** | Vercel | Clerk | **Privacidad** | noindex + bloqueo crawlers IA |
+| **health-erino** | Vercel | Clerk | **Privacidad** | noindex + bloqueo crawlers IA |
 
-| Repo | Cara pública | Auth (Clerk/Supabase) | Prioridad SEO |
-|------|--------------|----------------------|---------------|
-| **portfolio** | Sí — vitrina | No | **P0** |
-| **wayool** | Sí — studio | No | **P0** |
-| **beatstack** | Sí — producto | Parcial | **P0** (referencia) |
-| **watchily-ho** | Sí — búsqueda streaming | Sí | **P1** (long-tail) |
-| **pactorus** | Sí — landing producto | No | **P1** |
-| **tekae** | Sí — listado hackathons | No | **P1** |
-| **mangatrack** | Parcial | Sí (Clerk) | **P2** |
-| **sommaire** | Parcial | Sí (Clerk) | **P2** |
-| **labby-dabby** | Landing mínima | Sí (Clerk) | **P2** (solo landing; app noindex) |
-| **health-erino** | No real | Sí (Clerk) | **P3** (noindex app; privacidad) |
-| **crt-lineas** | No | Sí (Clerk) | **P3** (noindex; datos sensibles) |
-| **fortnite-live-countdown** | Parcial | Sí (Clerk) | **P2** |
-| **velyd** | Parcial | Sí (Clerk) | **P2** |
-| **vibe-store** | Hub interno | Sí (Clerk) | **P3** |
-| **luzparroquial** | Admin | No público masivo | **P3** |
-| **ai-specs** | Interno | — | **P4** (noindex o ignorar) |
+### Fuera de alcance (no tocar salvo decisión explícita)
 
-### Otros
+pactorus, tekae, sommaire, labby-dabby, velyd, vibe-store, luzparroquial, arbpulse, env-ironmint, ai-specs, y el resto del meta-inventario anterior.
 
-| Repo | Tipo | SEO/AEO |
-|------|------|---------|
-| **arbpulse** | Vite SPA + bot arbitraje (coding challenge) | **Fuera de alcance** — no SSR ni AEO salvo pivot a producto |
-| **env-ironmint** | NPM CLI | README + npm, no web |
-| **triage_coins** | Bot + web opcional | README; web secundario |
-| **certifications**, **linear**, **invoixen**, **marketing** | Docs / sin web app | N/A |
+### SaaS nuevos en el CV
 
-### SaaS nuevos (incluir SEO desde día 1)
-
-Cuando arranques **OG Image API**, **Link in Bio** u otro SaaS en Vercel:
-
-- Copiar plantilla `lib/seo/` (ver Fase 1) en el scaffold inicial.
-- `robots.ts` + `sitemap.ts` + `metadata.ts` + `site.ts` antes del primer deploy a producción.
-- `allowSearchIndexing()` / preview `noindex` desde el primer PR.
+Si añades un proyecto destacado al portfolio, copiar `lib/seo/` (Fase 1) antes del primer deploy a producción.
 
 ---
 
@@ -81,27 +92,18 @@ Cuando arranques **OG Image API**, **Link in Bio** u otro SaaS en Vercel:
 
 Leyenda: ✅ implementado · ⚠️ parcial · ❌ ausente · 🔒 debe ser noindex · ➖ N/A
 
-| Proyecto | OG | Twitter | robots meta | robots.ts | sitemap | canonical | JSON-LD | AI bots robots | Preview noindex | llms.txt |
-|----------|:--:|:-------:|:-----------:|:---------:|:-------:|:---------:|:-------:|:--------------:|:---------------:|:--------:|
-| **beatstack** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
-| **portfolio** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ code · deploy ⏳ | ❌ |
-| **wayool** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ code · deploy ⏳ | ❌ |
-| **mangatrack** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | ❌ |
-| **sommaire** | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ **riesgo** | ❌ |
-| **labby-dabby** | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | ❌ |
-| **fortnite-live-countdown** | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | ❌ |
-| **watchily-ho** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | ❌ |
-| **pactorus** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | ❌ |
-| **tekae** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | ❌ |
-| **health-erino** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | ❌ |
-| **crt-lineas** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 🔒 | ❌ |
-| **velyd** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | ❌ |
-| **vibe-store** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 🔒 | ❌ |
-| **luzparroquial** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | 🔒 | ❌ |
-| **ai-specs** | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **arbpulse/web** | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ fuera de alcance | ➖ |
+| Proyecto | OG | Twitter | robots.ts | sitemap | JSON-LD | Preview noindex | Notas |
+|----------|:--:|:-------:|:---------:|:-------:|:-------:|:---------------:|-------|
+| **portfolio** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ prod | canonical `mauricioabh.dev` |
+| **wayool** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ prod | falta env `NEXT_PUBLIC_SITE_URL` |
+| **beatstack** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | Render; ref `lib/seo/` |
+| **watchily-ho** | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | F3+F6+F7 pendiente |
+| **mangatrack** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ **riesgo** | F3+F5+F8 pendiente |
+| **fortnite-live-countdown** | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ **riesgo** | F3+F5+F8 pendiente |
+| **crt-lineas** | ➖ | ➖ | ❌ | ➖ | ➖ | ❌ **riesgo** | solo F3+F8 (privacidad) |
+| **health-erino** | ➖ | ➖ | ❌ | ➖ | ➖ | ❌ **riesgo** | solo F3+F8 (privacidad) |
 
-**Preview noindex:** solo **beatstack** implementa `allowSearchIndexing()` (`lib/seo/site.ts`). Los demás proyectos públicos en Vercel pueden indexarse en `*-git-*.vercel.app` en paralelo al dominio de producción → duplicados para crawlers e IAs.
+**Preview noindex:** portfolio, wayool y beatstack ya usan `allowSearchIndexing()`. Los otros 5 repos CV en Vercel siguen con riesgo de duplicado `*.vercel.app`.
 
 ---
 
@@ -130,7 +132,7 @@ Leyenda: ✅ implementado · ⚠️ parcial · ❌ ausente · 🔒 debe ser noin
    - 3–5 FAQ en markdown.
    - Stack y cómo correr local (las IAs lo indexan vía GitHub).
 
-6. **`noindex` en preview deploys** (`VERCEL_ENV === 'preview'` o branch ≠ `main`).
+6. **`noindex` en preview deploys** (`VERCEL_ENV === 'preview'` o branch ≠ `main`/`master`).
 
 ### Confianza media — después del paquete base
 
@@ -212,26 +214,28 @@ app/
 | Rutas en sitemap: `/`, secciones ancla si aplica | ✅ | ✅ |
 
 **Criterios de aceptación:**
-- [x] `/robots.txt` y `/sitemap.xml` en build local (portfolio + wayool `npm run build` ✅ 2026-07-06)
-- [x] Preview deploy devuelve `noindex` (código: `allowSearchIndexing()` en ambos repos)
-- [ ] Rich Results Test sin errores críticos en home (tras deploy)
-- [ ] Producción: curl 200 en dominio canónico
+- [x] `/robots.txt` y `/sitemap.xml` 200 en producción (Vercel MCP 2026-07-06)
+- [x] Preview deploy devuelve `noindex`
+- [ ] Rich Results Test sin errores críticos en home (manual)
 
 **Esfuerzo:** ~1 día por repo.
 
 ---
 
-### Fase 3 — Preview `noindex` en todos los proyectos públicos
+### Fase 3 — Preview `noindex` (repos CV pendientes)
 
-**Repos:** portfolio, wayool, watchily, mangatrack, sommaire, pactorus, tekae, labby-dabby (landing), fortnite, velyd, beatstack (ya OK).
+**Repos:** watchily-ho, mangatrack, fortnite-live-countdown, crt-lineas, health-erino.  
+**Ya OK:** portfolio, wayool, beatstack.
 
-**Implementación estándar** (de `beatstack/lib/seo/site.ts`):
+**Implementación estándar** (de `beatstack/lib/seo/site.ts` — aceptar `main` y `master`):
 
 ```ts
+const PRODUCTION_GIT_BRANCHES = new Set(["main", "master"]);
+
 export function isPreviewDeployment(): boolean {
   if (process.env.VERCEL_ENV === "preview") return true;
   const branch = process.env.VERCEL_GIT_COMMIT_REF?.trim();
-  if (branch && branch !== "main") return true;
+  if (branch && !PRODUCTION_GIT_BRANCHES.has(branch)) return true;
   return false;
 }
 
@@ -241,39 +245,34 @@ export function allowSearchIndexing(): boolean {
 }
 ```
 
-Usar en `metadata.robots` y en `app/robots.ts` (`disallow: /` si preview).
-
-**Verificación manual:**
-1. Abrir URL de preview en Vercel → View Source → `noindex` o `robots` meta.
-2. `curl https://<preview>/robots.txt` → `Disallow: /`
-3. Producción en dominio custom → `index, follow`
-
 **Criterios de aceptación:**
-- [x] Matriz: portfolio + wayool + beatstack en ✅ preview noindex (código)
-- [ ] Matriz: resto P0–P2 públicos (WAY-59)
+- [x] portfolio + wayool + beatstack
+- [ ] watchily-ho, mangatrack, fortnite-live-countdown, crt-lineas, health-erino (WAY-59)
 
 **Esfuerzo:** ~30 min por repo una vez existe la plantilla.
 
 ---
 
-### Fase 4 — Auditar y mejorar contenido FAQ/help (no solo markup)
+### Fase 4 — Contenido FAQ/help (solo donde aplica)
 
-1. **beatstack `/help`:** intro producto, `lastUpdated`, ampliar FAQs top 3.
-2. **pactorus:** crear `/help` o sección FAQ en landing antes de `FAQPage` schema.
-3. **portfolio:** sección FAQ en página o README enlazado ("¿Qué stack usas?", "¿Proyectos destacados?").
+1. **beatstack `/help`:** intro producto, `lastUpdated`, ampliar FAQs top 3 (WAY-60).
+2. **portfolio:** ✅ hecho (`#faq` + `PORTFOLIO_FAQ_ITEMS`).
+
+**No aplica:** crt-lineas, health-erino (sin FAQ pública).
 
 **Criterios de aceptación:**
-- [x] portfolio FAQ pasa rubrica § Auditoría (2026-07-06)
+- [x] portfolio FAQ pasa rubrica § Auditoría
 - [ ] beatstack `/help` pasa rubrica (WAY-60)
-- [ ] pactorus FAQ antes de FAQPage schema
 
 **Esfuerzo:** ~2–4 h por sitio con FAQ nueva.
 
 ---
 
-### Fase 5 — Mejorar README (canal AEO GitHub)
+### Fase 5 — README AEO (repos CV con cara pública)
 
-**Repos públicos prioritarios:** portfolio (este meta-repo), beatstack, watchily-ho, wayool, pactorus, tekae, mangatrack, labby-dabby, env-ironmint.
+**Repos:** beatstack, watchily-ho, wayool, mangatrack, fortnite-live-countdown.  
+**Ya OK:** portfolio.  
+**No aplica:** crt-lineas, health-erino (README técnico basta; sin bloque AEO).
 
 **Plantilla mínima** (añadir al README de cada repo):
 
@@ -298,8 +297,8 @@ Usar en `metadata.robots` y en `app/robots.ts` (`disallow: /` si preview).
 ```
 
 **Criterios de aceptación:**
-- [x] portfolio: URL producción + ≥3 FAQ en README (2026-07-06)
-- [ ] Resto repos públicos (WAY-61)
+- [x] portfolio
+- [ ] beatstack, wayool, watchily-ho, mangatrack, fortnite-live-countdown (WAY-61)
 
 **Esfuerzo:** ~30–45 min por README.
 
@@ -321,15 +320,17 @@ Por página:
 
 ---
 
-### Fase 7 — JSON-LD por tipo de app
+### Fase 7 — JSON-LD (solo repos con indexación pública)
 
-| Repo | Schema | Dónde |
-|------|--------|-------|
-| portfolio | `Person`, `ProfilePage`, `WebSite` | layout + home |
-| wayool | `Organization`, `WebSite` | layout |
-| pactorus | `SoftwareApplication`, `FAQPage` | layout + /help |
-| beatstack | ya tiene `SoftwareApplication`, `FAQPage` | mantener |
-| watchily | `WebApplication` + `Movie` / `TVSeries` | layout + detalle |
+| Repo | Schema | Estado |
+|------|--------|--------|
+| portfolio | `Person`, `ProfilePage`, `WebSite`, `FAQPage` | ✅ |
+| wayool | `Organization`, `WebSite` | ✅ |
+| beatstack | `SoftwareApplication`, `FAQPage` | ✅ (mantener) |
+| watchily-ho | `WebApplication` + `Movie`/`TVSeries` en detalle | ❌ |
+| mangatrack | `WebApplication` en landing si hay página pública | ❌ opcional |
+| fortnite-live-countdown | `WebApplication` en landing | ❌ opcional |
+| crt-lineas, health-erino | — | ➖ no aplica |
 
 **Regla:** schema refleja contenido visible en HTML, no inventar campos.
 
@@ -337,16 +338,16 @@ Por página:
 
 ---
 
-### Fase 8 — `noindex` en áreas privadas (apps con auth)
+### Fase 8 — Privacidad: noindex + bloqueo crawlers IA
 
-**Repos:** labby-dabby, health-erino, crt-lineas, mangatrack, sommaire, fortnite-live-countdown, velyd, vibe-store, luzparroquial.
+**Repos CV:** mangatrack, fortnite-live-countdown, **crt-lineas**, **health-erino**.
 
-**Patrón:**
-- Layout o middleware en rutas `(app)/`, `/dashboard`, `/settings`, etc.: `robots: { index: false, follow: false }`.
-- Landing pública (si existe): indexable con OG básico.
-- **health-erino, labby-dabby, crt-lineas:** bloquear bots de IA en `robots.txt` además de noindex en app.
+| Repo | Patrón |
+|------|--------|
+| mangatrack, fortnite | Landing/countdown indexable; rutas `(app)/`, dashboard, settings → `noindex` |
+| crt-lineas, health-erino | **App completa noindex** + `robots.txt` bloquea GPTBot, ClaudeBot, PerplexityBot, Google-Extended |
 
-**Principio:** privacidad > visibilidad en zonas autenticadas.
+**Principio:** en health-erino y crt-lineas **no** invertir en SEO/AEO — solo evitar indexación accidental.
 
 **Esfuerzo:** ~1–2 h por repo.
 
@@ -368,16 +369,9 @@ Solo **beatstack** + **portfolio** si queda tiempo.
 
 ---
 
-### Fase 10 — Fuera de alcance explícito
+### Fase 10 — Fuera de alcance
 
-| Repo | Decisión |
-|------|----------|
-| **arbpulse/web** | No SSR, no sitemap, no AEO — bot de arbitraje para coding challenge |
-| **health-erino, crt-lineas, labby-dabby** (zonas auth) | No AEO; noindex + bloqueo crawlers IA |
-| **ai-specs** | noindex global si se despliega |
-| **certifications, linear, invoixen, marketing** | N/A |
-
-Reabrir arbpulse solo con decisión explícita de convertirlo en producto público.
+Todos los repos no listados en § Inventario CV (8 repos), incluyendo pactorus, tekae, sommaire, labby-dabby, velyd, vibe-store, luzparroquial, arbpulse, env-ironmint, ai-specs.
 
 ---
 
@@ -391,37 +385,37 @@ Reabrir arbpulse solo con decisión explícita de convertirlo en producto públi
 
 ---
 
-## Checklist de seguimiento
-
-Marcar `[x]` al completar cada fase por repo.
+## Checklist de seguimiento (8 repos CV)
 
 ### P0 — portfolio, wayool, beatstack
 
-- [x] F1 Plantilla `lib/seo/` extraída (beatstack ref + portfolio + wayool)
-- [x] F2 portfolio + wayool con paquete completo (código; deploy ⏳)
-- [x] F3 Preview noindex (portfolio + wayool + beatstack)
-- [x] F4 Contenido FAQ portfolio · beatstack help pendiente (WAY-60)
-- [x] F5 README AEO portfolio · resto WAY-61
-- [x] F7 JSON-LD portfolio (Person/WebSite/ProfilePage) + wayool (Organization/WebSite)
-- [ ] F9 llms.txt (opcional)
+- [x] F1 Plantilla `lib/seo/` (beatstack ref; portfolio + wayool consumidores)
+- [x] F2 portfolio + wayool — producción verificada
+- [x] F3 Preview noindex (los 3)
+- [x] F4 FAQ portfolio · [ ] beatstack `/help` (WAY-60)
+- [x] F5 README portfolio · [ ] wayool, beatstack (WAY-61)
+- [x] F7 JSON-LD portfolio + wayool · beatstack ya tenía
+- [ ] F9 llms.txt opcional (portfolio + beatstack)
 
-### P1 — watchily, pactorus, tekae
+### P1 — watchily-ho
 
 - [ ] F3 Preview noindex
 - [ ] F5 README AEO
-- [ ] F6 watchily generateMetadata
+- [ ] F6 generateMetadata long-tail
 - [ ] F7 JSON-LD
+- [ ] F8 noindex rutas autenticadas
 
-### P2 — mangatrack, sommaire, labby-dabby, fortnite, velyd
+### P2 — mangatrack, fortnite-live-countdown
 
 - [ ] F3 Preview noindex
-- [ ] F8 noindex áreas privadas
-- [ ] F5 README donde aplique
+- [ ] F5 README AEO
+- [ ] F8 noindex áreas privadas (parcial en fortnite)
 
-### P3 — health-erino, crt-lineas, vibe-store, luzparroquial
+### Privacidad — crt-lineas, health-erino
 
-- [ ] F8 noindex + bloqueo crawlers IA
-- [ ] Sin inversión AEO en app autenticada
+- [ ] F3 Preview noindex
+- [ ] F8 noindex global + bloqueo crawlers IA
+- [x] Sin FAQ / JSON-LD / README AEO (decisión explícita)
 
 ---
 
@@ -441,9 +435,14 @@ Marcar `[x]` al completar cada fase por repo.
 
 ## Próximo paso inmediato
 
-1. **Deploy** portfolio + wayool y verificar `/robots.txt` + `/sitemap.xml` 200 en producción (WAY-57, WAY-58).
-2. **F3 rollout** a P1–P2 repos (WAY-59).
-3. **beatstack `/help`** contenido (WAY-60).
+Orden sugerido para **cerrar el plan CV**:
+
+1. **WAY-59** — F3 en watchily-ho, mangatrack, fortnite-live-countdown, crt-lineas, health-erino (~30 min c/u).
+2. **WAY-63** — F8 privacidad en crt-lineas + health-erino (bloqueo IA); mangatrack + fortnite (noindex auth).
+3. **WAY-60** — beatstack `/help` contenido.
+4. **WAY-61** — README AEO en beatstack, wayool, watchily-ho, mangatrack, fortnite.
+5. **WAY-62** — watchily `generateMetadata` (mayor esfuerzo; ~2–3 días).
+6. Config Vercel: `NEXT_PUBLIC_SITE_URL=https://wayool.com`.
 
 ---
 
