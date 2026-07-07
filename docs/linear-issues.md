@@ -10,9 +10,9 @@
 |-----------|--------|
 | M0 Foundation — lib/seo template | WAY-56 ✅ |
 | M1 P0 — portfolio + wayool | WAY-57 ✅, WAY-58 ✅ (deploy verify ⏳) |
-| M2 Preview noindex rollout | WAY-59, WAY-63 |
-| M3 Content + README AEO | WAY-60, WAY-61 |
-| M4 JSON-LD + watchily dynamic metadata | WAY-62 |
+| M2 Preview noindex rollout | WAY-59 (watchily, mangatrack, fortnite, crt-lineas, health-erino) |
+| M3 Content + README AEO | WAY-60 (beatstack), WAY-61 (5 CV repos) |
+| M4 JSON-LD + watchily dynamic metadata | WAY-62 (watchily-ho only) |
 
 | Milestone | Issues |
 |-----------|--------|
