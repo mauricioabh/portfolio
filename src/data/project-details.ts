@@ -26,6 +26,8 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Vitest API authorization tests for protected admin, sync, and chat routes (7/7 in CI)",
       "Neon preview branches via GitHub integration for safe schema changes per PR",
       "Sentry on web app; CodeQL and Dependabot in GitHub Actions",
+      "Privacy SEO: global noindex/nofollow metadata and robots.txt blocking all crawlers (including GPTBot, ClaudeBot, PerplexityBot, Google-Extended) — health data must not be indexed",
+      "Preview deployment noindex via lib/seo/site.ts (allowSearchIndexing on production branch only)",
     ],
     flows: [
       "Admin signs in via Clerk and opens /admin to sync medications from Google Sheets or manage records manually",
@@ -155,6 +157,13 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Clerk auth with Google OAuth, user profiles, and preference management",
       "Inngest background jobs for async processing; Stripe customer portal for self-service",
     ],
+    productionPractices: [
+      "lib/seo/: robots.ts, sitemap.xml, metadataBase + canonical OG/Twitter, Organization JSON-LD",
+      "Preview noindex guard (lib/seo/site.ts) — blocks *.vercel.app duplicate indexing",
+      "Private app routes noindex: dashboard, reader, settings, sign-in, sign-up (layout metadata)",
+      "README AEO block on GitHub for answer-engine discoverability",
+      "Clerk middleware auth; Stripe subscriptions; Inngest background jobs; Prisma on Neon",
+    ],
     flows: [
       "User signs in via Clerk and lands on /dashboard",
       "User searches manga at /search and bookmarks series to their library",
@@ -163,7 +172,7 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Premium users upgrade via Stripe checkout; tier unlocks higher bookmark limits",
     ],
     howToUse: [
-      "Sign up at mangatrack-git-dev-mauricioabhs-projects.vercel.app with Google or email",
+      "Sign up at mangatrack.wayool.com with Google or email",
       "Search for manga and bookmark series from your dashboard",
       "Open a chapter in the reader and track your progress automatically",
       "Enable email or browser notifications for new chapter alerts",
@@ -182,6 +191,13 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Optional Gemini AI: Describe your song and Evaluate prompt",
       "PWA installable in production with localStorage persistence",
       "Dark/light/system theme with undo (Ctrl+Z) and minimap",
+    ],
+    productionPractices: [
+      "Shared lib/seo/ reference implementation: robots.ts, sitemap.xml, metadataBase, preview noindex (main/master + Render branch guard)",
+      "/help FAQ page with expanded answers and lastUpdated for AEO (FAQPage-friendly content)",
+      "README AEO block describing product, stack, and live URL for GitHub/answer engines",
+      "PWA installable in production; deployed on Render with RENDER_EXTERNAL_URL canonical fallback",
+      "Optional Gemini routes for Describe your song and Evaluate prompt",
     ],
     flows: [
       "User drags node types from the left palette onto the canvas",
@@ -245,6 +261,10 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Playwright E2E in GitHub Actions: HTTP smokes, Sentry probe, and Clerk auth (6 tests — guest 401, signed-in favorites 200)",
       "Sentry captures cron ingest failures on /api/cron/ingest-fortnite",
       "Dependabot for npm and GitHub Actions across the Turborepo",
+      "lib/seo/ on web app: robots.ts, sitemap.xml, SoftwareApplication JSON-LD, metadataBase + OG/Twitter",
+      "Preview noindex guard; auth-only routes noindex (sign-in, sign-up, favoritos, historial) via layout metadata",
+      "Public robots.txt and sitemap.xml exempt from Clerk middleware for crawler access",
+      "README AEO block at monorepo root",
     ],
     flows: [
       "Daily cron calls fortnite-api endpoints and upserts events into Neon",
@@ -280,6 +300,9 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Vitest API authorization tests for ingest and company-link routes (5/5 in CI)",
       "Inngest durable bulk jobs with Neon MonitorBulkJob rows; inline Playwright fallback without INNGEST_*",
       "Sentry with PII scrubbing (CURP/credentials headers); CodeQL and Dependabot in CI",
+      "Privacy SEO: global noindex/nofollow on all pages — transport/PII data must not appear in search or AI crawlers",
+      "robots.txt Disallow all with explicit blocks for GPTBot, ClaudeBot, PerplexityBot, Google-Extended",
+      "Preview noindex guard (lib/seo/site.ts); /robots.txt on public Clerk route",
     ],
     flows: [
       "User signs in via Clerk (Google or email) and sets up verification profile (CURP/phone)",
@@ -372,6 +395,9 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Inngest watchlist refresh jobs and Upstash rate limiting on search (20 req/min/user)",
       "Supabase RLS isolation: 11 Vitest cases in GitHub Actions CI (profiles, lists, likes, pairing_codes)",
       "Playwright landing smoke on PRs; CodeQL and Dependabot in GitHub Actions",
+      "lib/seo/: robots.ts, sitemap.xml, metadataBase, dynamic generateMetadata on /title/[id] for long-tail streaming queries",
+      "JSON-LD on title detail pages; preview noindex guard on non-production branches",
+      "Private routes noindex: login, lists, settings (layout metadata); README AEO block (Spanish) on GitHub",
     ],
     flows: [
       "User signs in via Supabase (web cookies or mobile OAuth deep link)",
@@ -399,7 +425,16 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Hero, About, Experience, Projects, and Contact sections",
       "TechBadge system with consistent icons and hash-based colors per technology",
       "Project detail dialogs with overview, features, production practices, and architecture",
-      "SEO metadata, Open Graph tags, and /api/og dynamic image route",
+      "SEO/AEO package: robots.ts, sitemap.xml, JSON-LD (Person + FAQPage), recruiter FAQ section",
+      "Dynamic OG image generation at /api/og",
+    ],
+    productionPractices: [
+      "lib/seo/: metadataBase, canonical URLs, Open Graph and Twitter cards on all public routes",
+      "robots.ts with allow rules for public crawlers and explicit AI bot policies (GPTBot, ClaudeBot, PerplexityBot)",
+      "sitemap.xml with production canonical host (mauricioabh.dev)",
+      "JSON-LD Person schema + FAQPage for recruiter questions; visible #faq section on homepage",
+      "Preview noindex guard (main/master branches) to avoid duplicate *.vercel.app indexing",
+      "Deployed on Vercel with production verification of /robots.txt and /sitemap.xml",
     ],
     flows: [
       "Visitor lands on Hero section with introduction and CVA download link",
@@ -416,7 +451,7 @@ export const projectDetails: Record<string, ProjectDetails> = {
       "Use the Contact section to reach out via form or social links",
     ],
     architecture:
-      "Single Next.js App Router site with Tailwind CSS v4, shadcn/ui components, and Framer Motion. Static content lives in component files and src/data/projects.ts; OG images generated at app/api/og/route.tsx; deployed on Vercel.",
+      "Single Next.js App Router site with Tailwind CSS v4, shadcn/ui components, and Framer Motion. Content in src/data/; lib/seo/ centralizes metadata, robots, sitemap, and JSON-LD; OG images at app/api/og/route.tsx; deployed on Vercel.",
   },
 };
 
