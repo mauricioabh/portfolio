@@ -25,6 +25,15 @@ Contact form on the homepage, email mauricioabh@gmail.com, or LinkedIn at [linke
 
 ## Production practices
 
+### Core Web Vitals
+
+| Layer | Tool | Where |
+|-------|------|-------|
+| **RUM (field data)** | Sentry Web Vitals (`browserTracingIntegration`, `tracesSampleRate: 0.1` in prod) | [Sentry Performance → Web Vitals](https://mauricio-barragan.sentry.io) |
+| **Lab (CI)** | Lighthouse CI on PRs | `.github/workflows/lighthouse.yml` + `lighthouserc.json` |
+
+Set `SENTRY_DSN` in `.env.local` (see `.env.example`). Dev probe: `GET /api/debug/sentry` (disabled when `VERCEL_ENV=production`).
+
 ### SEO / AEO (`lib/seo/`)
 
 Reusable Next.js SEO module (copied from [beatstack](https://github.com/mauricioabh/beatstack) reference):

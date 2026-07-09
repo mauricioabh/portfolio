@@ -2,15 +2,19 @@
 
 Org: **[mauricio-barragan](https://mauricio-barragan.sentry.io)** · region `https://us.sentry.io` · team `mauricio-barragan`
 
-Create these five projects (one DSN per app). Do **not** commit real DSN values — each repo documents `SENTRY_DSN=` in `.env.example`.
+Create these projects (one DSN per app). Do **not** commit real DSN values — each repo documents `SENTRY_DSN=` in `.env.example`.
 
-| Sentry project name | Platform | Repo | Env file |
-|---------------------|----------|------|----------|
-| `watchily-ho` | Next.js (+ Expo mobile) | [watchily-ho](https://github.com/mauricioabh/watchily-ho) | `.env.example` (root) |
-| `arbpulse` | Node.js | [arbpulse](https://github.com/mauricioabh/arbpulse) | `.env.example` |
-| `crt-lineas` | Next.js | [crt-lineas](https://github.com/mauricioabh/crt-lineas) | `.env.example` |
-| `health-erino` | Next.js | [health-erino](https://github.com/mauricioabh/health-erino) | `web/.env.example` |
-| `fortnite-live-countdown` | Next.js | [fortnite-live-countdown](https://github.com/mauricioabh/fortnite-live-countdown) | `apps/web/.env.example` |
+| Sentry project name | Platform | Repo | Env file | Web Vitals |
+|---------------------|----------|------|----------|------------|
+| `watchily-ho` | Next.js (+ Expo mobile) | [watchily-ho](https://github.com/mauricioabh/watchily-ho) | `.env.example` (root) | ✅ `browserTracingIntegration` |
+| `arbpulse` | Node.js | [arbpulse](https://github.com/mauricioabh/arbpulse) | `.env.example` | — (API only) |
+| `crt-lineas` | Next.js | [crt-lineas](https://github.com/mauricioabh/crt-lineas) | `.env.example` | ✅ |
+| `health-erino` | Next.js | [health-erino](https://github.com/mauricioabh/health-erino) | `web/.env.example` | ✅ |
+| `fortnite-live-countdown` | Next.js | [fortnite-live-countdown](https://github.com/mauricioabh/fortnite-live-countdown) | `apps/web/.env.example` | ✅ |
+| `portfolio` | Next.js | [portfolio](https://github.com/mauricioabh/portfolio) | `.env.example` | ✅ |
+| `wayool` | Next.js | [wayool](https://github.com/mauricioabh/wayool) | `.env.example` | ✅ |
+| `beatstack` | Next.js | [beatstack](https://github.com/mauricioabh/beatstack) | `.env.example` | ✅ |
+| `mangatrack` | Next.js | [mangatrack](https://github.com/mauricioabh/mangatrack) | `.env.example` | ✅ (project may already exist) |
 
 ## Verified via Sentry MCP (2026-06-11)
 
@@ -61,6 +65,10 @@ Probes are disabled only when `VERCEL_ENV=production`. Clerk-protected apps expo
 - [x] Create project `crt-lineas`
 - [x] Create project `health-erino`
 - [x] Create project `fortnite-live-countdown`
+- [ ] Create project `portfolio` (if missing)
+- [ ] Create project `wayool` (if missing)
+- [ ] Create project `beatstack` (if missing)
+- [ ] Reuse or verify project `mangatrack`
 - [x] Paste DSNs into local `.env` / `.env.local` only (never git) — verified locally (2026-06-12)
 - [ ] Resolve test issues in Sentry UI after QA (optional)
 
