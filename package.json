@@ -11,7 +11,7 @@
     "generate-og": "node generate-og-image.js"
   },
   "dependencies": {
-    "@radix-ui/react-dialog": "^1.1.16",
+    "@radix-ui/react-dialog": "^1.1.19",
     "@radix-ui/react-slot": "^1.2.3",
     "@sentry/nextjs": "^10.57.0",
     "canvas-confetti": "^1.9.3",
